@@ -19,6 +19,28 @@
   }
 }
 
+@media print {
+  * {
+    -webkit-print-color-adjust: exact; /* Chrome, Safari */
+    print-color-adjust: exact;       /* Firefox */
+  }
+  body {
+    background-color: black !important;
+    color: #d1e1f3 !important;
+  }
+  h1, h2 {
+    background-size: 200% 200%;
+    background-image: linear-gradient(to right, #8693a1, #ffffff60, #9dabbb) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+  }
+  .navButton {
+    background-color: #d1e1f3 !important;
+    color: black !important;
+  }
+}
+
 
 @layer base{
   body {

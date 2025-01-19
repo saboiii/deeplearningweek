@@ -5,6 +5,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'media',
   theme: {
     extend: {
       keyframes: {
@@ -26,6 +27,9 @@ export default {
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
+      },
+      screens: {
+        'print': { 'raw': 'print' },
       }
     },
   },

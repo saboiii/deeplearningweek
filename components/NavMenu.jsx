@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { AnimatePresence, motion, cubicBezier } from 'framer-motion';
+import { AnimatePresence, motion, circInOut } from 'framer-motion';
 
 function NavMenu({menuData}) {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -56,12 +56,12 @@ function NavMenu({menuData}) {
           {activeMenu && menuData[activeMenu] && (
             <motion.div
               className="absolute grid grid-cols-2 divide-x top-[90%] navDropdownMenuContainer w-1/2 bg-white"
-              initial={{ opacity: 0, scaleY: 0.5, scaleX: 0.5 }}
+              initial={{ opacity: 0, scaleY: 0, scaleX: 0}}
               animate={{ opacity: 1, scaleY: 1, scaleX: 1 }}
               exit={{ opacity: 0, scaleY: 0, scaleX: 0 }}
               transition={{
                 duration: 0.1,
-                ease: cubicBezier(.17,.67,.83,.67),
+                ease: circInOut,
               }}
               onMouseEnter={() => handleMouseEnter(activeMenu)}
               onMouseLeave={handleMouseLeave}

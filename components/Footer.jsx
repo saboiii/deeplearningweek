@@ -6,7 +6,7 @@ import { IoMdMail } from "react-icons/io";
 
 function Footer() {
     return (
-        <div className='flex flex-col md:h-[50vh] w-screen'>
+        <div className='flex flex-col justify-between md:h-[50vh] w-screen'>
             <div className='flex flex-col md:flex-row justify-start md:justify-between w-full h-4/5 border-t border-[#2a2b3c]/80 pl-10 md:pl-20 py-12'>
                 <div className='flex h-full'>
                     <Image
@@ -42,7 +42,7 @@ function Footer() {
 
             </div>
             <div className='flex mt-2 border-t border-[#2a2b3c]/80 w-full h-0' />
-            <div className='flex flex-row justify-between py-8 md:py-0 md:h-1/5 px-10 md:px-20 text-[10px] md:text-xs items-center'>
+            <div className='flex flex-row h-1/5 justify-between py-8 px-10 md:px-20 text-[10px] md:text-xs items-center'>
                 <div>Website created by <Link href='saba.x.azad@gmail.com' className='text-[#708aa1]'>Saba Azad.</Link></div>
                 <div className='text-right'>© 2025 MLDA &#64; NTU. All rights reserved.</div>
             </div>
