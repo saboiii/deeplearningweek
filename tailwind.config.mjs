@@ -7,10 +7,26 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      keyframes: {
+        gradient: {
+          "0%": { backgroundPosition: "0% 100%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 100%" },
+        }
       },
+      animation: {
+        gradient: "gradient 10s linear infinite",
+
+      },
+      backgroundImage: {
+        'sg': "url('/images/sg.png')",
+        'sg2': "url('/images/sg2.png')",
+        'bg': "url('/images/bg.png')",
+        'signup': "url('/images/signup.png')",
+      },
+      fontFamily: {
+        'montserrat': ['Montserrat', 'sans-serif'],
+      }
     },
   },
   plugins: [],

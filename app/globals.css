@@ -2,20 +2,154 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes shine {
+  0% {
+    background-position: 70% 0, 0 0;
+  }
+  50% {
+    background-position: 0% 0, 0 0;
+  }
+  100% {
+    background-position: 70% 0, 0 0;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+@layer base{
+  body {
+    @apply bg-black text-[#d1e1f3] font-montserrat
+  }
+
+  h1 {
+    @apply text-[48px] md:text-[84px] font-montserrat font-medium tracking-tighter text-center bg-gradient-to-r from-[#8693a1] via-60% via-slate-50 to-[#9dabbb] bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  h2 {
+    @apply text-4xl md:text-[60px] leading-tight font-montserrat font-medium tracking-tighter text-center bg-gradient-to-r from-[#8693a1] via-60% via-slate-50 to-[#9dabbb] bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  h3 {
+    @apply font-montserrat font-semibold text-xl
+  }
+}
+
+.navDropdownMenuBox{
+  @apply flex flex-col justify-start h-full w-full border-[#2a2b3c]/80 p-7 gap-3
+}
+
+.navDropdownMenuItem{
+  @apply flex w-full gap-3 items-center text-xs font-medium text-[#9495a7] hoverLight cursor-pointer
+}
+
+.navDropdownCaption{
+  @apply flex w-full text-xs font-medium uppercase text-[#8889a5]
+}
+
+.navDropdownIcon{
+  @apply inline  text-[#57587b]
+}
+
+.hoverLight{
+  @apply hover:text-white duration-150 ease-in-out transition
+}
+
+.subtitle {
+  @apply font-montserrat tracking-[15px] font-normal text-center text-[20px]
+}
+
+.caption {
+  @apply font-montserrat tracking-[20px] font-normal text-center text-xs
+}
+
+.sponsorContainer {
+  @apply flex border-l w-[28vw] h-full p-4 border-[#2a2b3c]
+}
+
+.sponsorContainerEnd {
+  @apply flex border-l border-r w-[28vw] h-full p-4 border-[#2a2b3c]
+}
+
+.sponsorBanner{
+  @apply relative flex border-t border-b border-[#2a2b3c] w-full h-[15vh] md:h-1/5 items-center justify-center
+}
+
+.platinumSponsorBanner {
+  @apply z-20 cursor-pointer flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(157,121,255,.3)_50%,rgba(72,122,243,.1)_70%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
+  transition: background-position 0s ease;
+}
+
+.goldSponsorBanner {
+  @apply z-20 cursor-pointer  flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(72,122,243,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
+  transition: background-position 0s ease;
+}
+
+.silverSponsorBanner {
+  @apply z-20 cursor-pointer  flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(72,122,243,.15)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
+  transition: background-position 0s ease;
+}
+
+.bronzeSponsorBanner {
+  @apply z-20 cursor-pointer  flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(72,122,243,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
+  transition: background-position 0s ease;
+}
+
+.platinumSponsorBanner:hover, .goldSponsorBanner:hover, .silverSponsorBanner:hover, .bronzeSponsorBanner:hover {
+  animation: shine 5s ease-in-out;
+}
+
+.menuDivider{
+  @apply flex border-[0.5px] border-[#2a2b3c]/80 h-0 w-full
+}
+
+.footerItem{
+  @apply flex font-normal w-full items-center text-sm text-[#8a8b9c] hover:text-[#d1e1f3] transition duration-300 ease-in-out cursor-pointer
+}
+
+.navMenuContainer{
+  @apply bg-[#0f121a]/70 backdrop-blur-sm text-xs py-2 rounded-full border border-[#2a2b3c]/80
+}
+
+.navDropdownMenuContainer{
+  @apply bg-[#0f121a]/80 backdrop-blur-sm text-xs rounded-3xl border border-[#2a2b3c]/80
+}
+
+.navMainItem{
+  @apply text-sm hover:opacity-75 duration-300 transition ease-in-out cursor-pointer
+}
+
+.navButton{
+  @apply bg-[#d1e1f3] text-black px-4 py-2 rounded-full text-xs font-semibold hover:opacity-90 duration-200 transition ease-in-out cursor-pointer
+}
+
+.navMenuItem{
+  @apply hover:bg-[#504d87]/20 px-3 py-1 rounded-full border-[0.3px] border-transparent cursor-pointer hover:border-[#272835] duration-200 transition ease-in-out
+}
+
+.mask{
+  mask-image: url('/images/mask.svg');
+  mask-repeat: no-repeat;
+  mask-size: 300px;
+}
+
+.topPlus{
+  @apply absolute right-0 h-full top-[-14px] translate-x-[-5px] text-xl z-[5]
+}
+
+.topPlusEnd{
+  @apply absolute right-0 h-full top-[-14px] translate-x-[-6px] text-xl z-[5]
+}
+
+.bottomPlus{
+  @apply absolute right-0 h-full top-[100%] translate-y-[-14px] translate-x-[-5px] text-xl z-[5]
+}
+
+.bottomPlusEnd{
+  @apply absolute right-0 h-full top-[100%] translate-y-[-14px] translate-x-[-6px] text-xl z-[5]
 }
