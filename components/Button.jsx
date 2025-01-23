@@ -2,7 +2,7 @@ import { GoArrowRight, GoChevronRight } from "react-icons/go";
 import React, { useState } from 'react';
 import {AnimatePresence, motion, easeInOut} from "framer-motion";
 
-function Button( {text} ) {
+function Button( { text, onClick } ) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -10,6 +10,7 @@ function Button( {text} ) {
             className="flex navButton items-center"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={onClick}
         >
             {text}
             <AnimatePresence mode="wait" initial={false}>

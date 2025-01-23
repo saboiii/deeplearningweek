@@ -61,12 +61,11 @@ function Title() {
         </motion.div>
       </div>
       <div className={`flex w-full h-full items-center justify-center ${bgLoaded ? '' : 'bg-gradient-to-b from-[#101e3d]/70 to-[#090b10]/70'}`}>
-        <Image
+        <img
           src='/images/sg.png'
           height={1080}
           quality={100}
           width={1920}
-          priority
           className='object-cover object-center w-full h-full'
           alt='Background'
           onLoad={() => setBgLoaded(true)}
@@ -81,12 +80,11 @@ function Title() {
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       >
-        <Image
+        <img
           src='/images/sg2.png'
           quality={100}
           height={1080}
           width={1920}
-          priority
           className='object-cover object-center w-full h-full'
           alt='Background'
           onLoad={() => setBgLoaded(true)}

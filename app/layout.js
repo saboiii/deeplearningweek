@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-import NavMenu from "@/components/NavMenu";
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: "Deep Learning Week",
@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

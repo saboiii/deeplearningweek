@@ -4,7 +4,6 @@ import Lenis from '@studio-freight/lenis';
 import Sponsors from '@/components/Sponsors';
 import Title from '@/components/Title';
 import SignUp from '@/components/SignUp';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   useEffect(() => {
@@ -31,7 +30,6 @@ export default function Home() {
       <Title/>
       <Sponsors/>
       <SignUp/>
-      <Footer/>
     </div>
   );
 }

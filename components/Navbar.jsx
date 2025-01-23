@@ -3,11 +3,12 @@ import React from 'react'
 import Image from 'next/image'
 import NavMenu from './NavMenu'
 import { useState } from 'react'
-import { IoMenuOutline } from "react-icons/io5";
+import { IoMenuOutline, IoTrophyOutline } from "react-icons/io5";
 import { PiTarget, PiFlagBanner } from "react-icons/pi";
 import { BsPeople } from "react-icons/bs";
-import { RiSpeakAiLine } from "react-icons/ri";
+// import { RiSpeakAiLine } from "react-icons/ri";
 import { IoIosCog } from "react-icons/io";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { MdOutlineEmojiEvents, MdOutlineEventNote } from "react-icons/md";
 import Link from 'next/link'
 
@@ -20,21 +21,26 @@ function Navbar() {
             description: "Learn about our vision and the passionate team organizing the event.",
             caption: "EXPLORE",
             items: [
-                { icon: <PiTarget size={20} />, label: "Our Purpose" },
+                { icon: <IoMdInformationCircleOutline  size={20} />, label: "Our Event" },
                 { icon: <PiFlagBanner size={20} />, label: "Highlights" },
                 { icon: <BsPeople size={20} />, label: "Our Team" },
+                { icon: <PiTarget size={20} />, label: "Our Purpose" },
+                { icon: <IoTrophyOutline size={20} />, label: "Our Achievements" },
             ]
         },
         "Agenda": {
             title: "Agenda",
             description: "Check out the schedule of workshops, talks, and networking sessions.",
-            caption: "Information",
+            caption: "Schedules",
             items: [
-                { icon: <MdOutlineEventNote size={20} />, label: "Schedule" },
-                { icon: <IoIosCog size={20} />, label: "Workshop I" },
-                { icon: <IoIosCog size={20} />, label: "Workshop II" },
-                { icon: <IoIosCog size={20} />, label: "Workshop III" },
-                { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 1" },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 2" },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 3" },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 4" },
+                // { icon: <IoIosCog size={20} />, label: "Workshop I" },
+                // { icon: <IoIosCog size={20} />, label: "Workshop II" },
+                // { icon: <IoIosCog size={20} />, label: "Workshop III" },
+                // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
             ]
         },
         // "Speakers": {
@@ -69,7 +75,7 @@ function Navbar() {
                     <NavMenu menuData={menuData} />
                     <div className='flex gap-7 items-center z-20'>
                         {/* <div className='flex navMainItem'>Play</div> */}
-                        <div className='flex navButton'>Sign Up</div>
+                        <Link href='/signup' className='flex navButton'>Sign Up</Link>
                     </div>
                 </div>
             </div>
@@ -91,7 +97,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className={`lg:hidden fixed w-screen h-screen bg-bg z-[25] pt-24 px-8 ${menuOpen ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300 ease-in-out`}>
+            <div className={`lg:hidden fixed w-screen h-screen bg-bg z-[25] pt-24 px-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-300 ease-in-out`}>
                 <div className='flex flex-col gap-4'>
                     <Link href='/' className='flex'>Home</Link>
                     <div className='menuDivider'/>

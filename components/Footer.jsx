@@ -32,10 +32,10 @@ function Footer() {
                     <div className='flex flex-col  w-full md:w-[20vw] p-4'>
                         <div className='flex flex-col w-full gap-3'>
                             <div className='flex w-full text-sm font-semibold'>Contact Us</div>
-                            <Link href='deeplearningweek@gmail.com ' className='footerItem'><IoMdMail size={16} className='inline mr-2'/>Email</Link>
-                            <Link href='/' className='footerItem'><FaTelegramPlane size={16} className='inline mr-2'/>Telegram</Link>
-                            <Link href='https://www.instagram.com/deeplearningweek' className='footerItem'><FaInstagram size={16} className='inline mr-2'/> Instagram</Link>
-                            <Link href='/' className='footerItem'><FaLinkedin size={16} className='inline mr-2'/>Linkedin</Link>
+                            <a target="_blank" rel="noopener noreferrer" href='mailto:deeplearningweek@gmail.com' className='footerItem'><IoMdMail size={16} className='inline mr-2'/>Email</a>
+                            {/* <Link href='/' className='footerItem'><FaTelegramPlane size={16} className='inline mr-2'/>Telegram</Link> */}
+                            <a href='https://www.instagram.com/deeplearningweek' className='footerItem'><FaInstagram size={16} className='inline mr-2'/> Instagram</a>
+                            {/* <a target="_blank" rel="noopener noreferrer" href='/' className='footerItem'><FaLinkedin size={16} className='inline mr-2'/>Linkedin</a> */}
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@ function Footer() {
             </div>
             <div className='flex mt-2 border-t border-[#2a2b3c]/80 w-full h-0' />
             <div className='flex flex-row h-1/5 justify-between py-8 px-10 md:px-20 text-[10px] md:text-xs items-center'>
-                <div>Website created by <Link href='saba.x.azad@gmail.com' className='text-[#708aa1]'>Saba Azad.</Link></div>
+                <div>Website created by <a href='mailto:saba.x.azad@gmail.com' className='text-[#708aa1]'>Saba Azad.</a></div>
                 <div className='text-right'>© 2025 MLDA &#64; NTU. All rights reserved.</div>
             </div>
         </div>

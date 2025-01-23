@@ -19,28 +19,6 @@
   }
 }
 
-@media print {
-  * {
-    -webkit-print-color-adjust: exact; /* Chrome, Safari */
-    print-color-adjust: exact;       /* Firefox */
-  }
-  body {
-    background-color: black !important;
-    color: #d1e1f3 !important;
-  }
-  h1, h2 {
-    background-size: 200% 200%;
-    background-image: linear-gradient(to right, #8693a1, #ffffff60, #9dabbb) !important;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent !important;
-  }
-  .navButton {
-    background-color: #d1e1f3 !important;
-    color: black !important;
-  }
-}
-
 
 @layer base{
   body {
@@ -108,7 +86,7 @@
 }
 
 .goldSponsorBanner {
-  @apply z-20 cursor-pointer  flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(72,122,243,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
+  @apply z-20 cursor-pointer flex w-full h-full items-center justify-center rounded-xl bg-[linear-gradient(45deg,transparent_25%,rgba(72,122,243,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:70%_0,0_0] bg-no-repeat ease-in-out;
   transition: background-position 0s ease;
 }
 
@@ -174,4 +152,43 @@
 
 .bottomPlusEnd{
   @apply absolute right-0 h-full top-[100%] translate-y-[-14px] translate-x-[-6px] text-xl z-[5]
+}
+
+.ntuDetail{
+  @apply flex rounded-xl border border-[#504d87]/40 text-xs outline-none focus:border-[#656291]/70 px-4 py-2 hover:border-violet-400/20 duration-300 transition ease-in-out placeholder:text-[#524f75] text-[#c1c1d1] font-medium tracking-tight z-30 bg-transparent
+}
+
+.placeholderIndicator{
+  @apply antialiased hover:placeholder:text-[#bcbdde] placeholder:text-[#626377] placeholder:duration-300 placeholder:transition placeholder:ease-in-out
+}
+
+
+.textIndicator{
+  @apply  hover:text-[#bcbdde] text-[#626377] duration-300 transition ease-in-out
+}
+.skullKing{
+  @apply absolute top-0 text-[#8f90a8] right-0 -translate-x-10 py-1 translate-y-1 text-xs rounded-lg border border-[#2a2b3c]/80 bg-[#0f121a]/70 px-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100
+}
+
+.dot{
+  @apply w-full bg-[#bcbdde] rounded-full h-[60px]
+}
+
+.dot.ripple {
+  animation: ripple-animation 0.6s ease-out forwards;
+}
+
+@keyframes ripple-animation {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(2);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+  }
 }
