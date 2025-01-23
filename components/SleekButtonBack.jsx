@@ -7,7 +7,7 @@ function SleekButtonBack({ text, onClick, styles, disabled }) {
 
     return (
         <button
-            className={`inline-flex pl-2 pr-4 text-[#8d8eab] uppercase py-2 text-xs justify-between plainShineEffect items-center overflow-hidden rounded-full ${styles}`}
+            className={`inline-flex pl-2 pr-4 text-[#8d8eab] uppercase py-2 text-xs justify-between disabled:border-gray-800 disabled:text-gray-800 disabled:cursor-not-allowed items-center overflow-hidden rounded-full ${styles}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={onClick}

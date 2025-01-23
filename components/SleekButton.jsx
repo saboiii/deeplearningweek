@@ -8,14 +8,15 @@ function SleekButton({ text, onClick, styles, disabled }) {
     return (
 
             <button
-                className={`inline-flex pl-4 pr-3 uppercase py-2 text-xs justify-between plainShineEffect items-center overflow-hidden ${styles}`}
+                className={`inline-flex pl-4 pr-3 uppercase py-2 text-xs justify-between disabled:border-gray-700 disabled:text-gray-700 disabled:cursor-not-allowed items-center overflow-hidden ${styles}`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 onClick={onClick}
                 disabled={disabled}
             >
                 {text}
-                <AnimatePresence mode="wait" initial={false}>
+                {!disabled ? (
+                    <AnimatePresence mode="wait" initial={false}>
                     {isHovered ? (
                         <motion.div
                             key="chevron"
@@ -40,6 +41,12 @@ function SleekButton({ text, onClick, styles, disabled }) {
                         </motion.div>
                     )}
                 </AnimatePresence>
+                ) : (
+                    <div>
+                        <div className="ml-4 w-3 h-3 border-b border-gray-600 rounded-full animate-spin"></div>
+                    </div>
+                )}
+                
             </button>
     )
 }
