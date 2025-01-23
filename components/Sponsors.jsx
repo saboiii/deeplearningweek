@@ -73,7 +73,7 @@ function Sponsors() {
               height={100}
               width={100}
               alt='Google logo'
-              className='object-contain flex blur-sm translate-y-1 w-16 md:w-auto h-auto'
+              className='object-contain flex translate-y-1 w-16 md:w-auto h-auto'
             />
           </div>
         </motion.div>
@@ -115,7 +115,7 @@ function Sponsors() {
               height={140}
               width={140}
               alt='Nvidia logo'
-              className='object-contain flex translate-y-1 blur-sm w-16 md:w-auto h-auto'
+              className='object-contain flex translate-y-1 w-16 md:w-auto h-auto'
             />
           </div>
         </motion.div>
@@ -127,7 +127,7 @@ function Sponsors() {
               height={150}
               width={150}
               alt='Dorahacks logo'
-              className='object-contain flex translate-y-[5px] blur-sm w-16 md:w-auto h-auto'
+              className='object-contain flex translate-y-[5px] w-16 md:w-auto h-auto'
             />
           </div>
         </motion.div>
