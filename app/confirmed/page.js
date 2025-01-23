@@ -16,7 +16,7 @@ function Confirmed() {
     }
 
     return (
-        <div className="flex flex-col w-screen h-screen justify-center gap-6 items-center">
+        <div className="flex flex-col w-screen h-screen justify-center gap-6 items-center bg-bg">
             <BsCheck2Circle size={100}/>
             <h2 className='text-2xl md:text-[40px] leading-none'>Confirmed.</h2>
             <div className="w-[26vw] mb-3 flex text-[#8a8ba0] justify-center text-center text-sm text-pretty">

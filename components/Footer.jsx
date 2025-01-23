@@ -22,12 +22,12 @@ function Footer() {
                     <div className='flex flex-col h-full w-full md:w-[20vw] p-4'>
                         <div className='flex flex-col w-full gap-3 mb-6'>
                             <div className='flex w-full text-sm font-semibold'>Legal</div>
-                            <Link href='/' className='footerItem'>Privacy Policy</Link>
-                            <Link href='/' className='footerItem'>Terms & Conditions</Link>
+                            <Link href='/privacy' className='footerItem'>Privacy Policy</Link>
+                            {/* <Link href='/' className='footerItem'>Terms & Conditions</Link> */}
                         </div>
                         <div className='flex flex-col w-full gap-3'>
                             <div className='flex w-full text-sm font-semibold'>Credits</div>
-                            <Link href='/' className='footerItem'>3D Model</Link>
+                            <Link href='/credits' className='footerItem'>3D Model</Link>
                         </div>
                     </div>
                     <div className='flex flex-col  w-full md:w-[20vw] p-4'>

@@ -2,9 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Schedule from '@/components/Schedule';
-import { useScroll } from 'framer-motion';
-import { usePathname, useSearchParams } from 'next/navigation'
-
+import { useSearchParams } from 'next/navigation'
 
 function Agenda() {
     const day1Ref = useRef(null);
