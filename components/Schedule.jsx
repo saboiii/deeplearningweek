@@ -36,19 +36,19 @@ function Schedule({ schedule, title, date, description, divs, styles }) {
     return (
         <div ref={ref} className={`relative flex flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
             <div className="flex flex-col mb-16 h-[32vh] lg:h-[20vh] w-full items-center justify-center lg:items-start lg:justify-start">
-                <h2 className='flex flex-row lg:flex-col items-center justify-center mb-8 lg:items-start w-full md:w-2/3 text-center lg:text-left text-[36px] lg:text-[60px] xl:text-[72px] animate-gradient'>
+                <h2 className='flex flex-row lg:flex-col items-center justify-center mb-8 lg:items-start w-full md:w-2/3 text-center lg:text-left text-[28px] md:text-[32px] lg:text-[60px] xl:text-[72px] animate-gradient'>
                     {title == 'Overnight Stay.' ? (
                         <PiMoonStars size={50} className='text-[#b4c0ce] inline mr-4 mb-0 lg:mb-4' />
                     ):(
-                        <PiSun size={50} className='text-[#b4c0ce] inline mr-4 mb-0 lg:mb-4' />
+                        <PiSun size={50} className='text-[#b4c0ce] inline mr-4 lg:mb-4' />
                     )}
                     {title}
                 </h2>
                 
-                <p className='text-center lg:text-left text-xs text-pretty w-[70%] mb-4 lg:w-[60%]'>
+                <p className='text-center lg:text-left text-xs text-pretty w-[70%] mb-6 lg:w-[60%]'>
                     {description}
                 </p>
-                <p className='navDropdownCaption w-full'>{date}</p>
+                <p className='navDropdownCaption w-full justify-center text-center lg:justify-start mb-4 lg:text-left'>{date}</p>
             </div>
             <div className='flex h-full w-[80vw] pl-32 pr-0 md:px-24 lg:px-0 lg:mt-8'>
                 <div className="relative flex-col justify-between flex w-full h-full">
