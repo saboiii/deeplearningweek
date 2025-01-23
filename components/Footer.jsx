@@ -44,7 +44,7 @@ function Footer() {
             </div>
             <div className='flex mt-2 border-t border-[#2a2b3c]/80 w-full h-0' />
             <div className='flex flex-row h-1/5 justify-between py-8 px-10 md:px-20 text-[10px] md:text-xs items-center'>
-                <div>Website created by <a href='mailto:saba.x.azad@gmail.com' className='text-[#708aa1]'>Saba Azad.</a></div>
+                <div>Website created by <a href='https://www.linkedin.com/in/sabaxazad/' className='text-[#708aa1]'>Saba Azad.</a></div>
                 <div className='text-right'>© 2025 MLDA &#64; NTU. All rights reserved.</div>
             </div>
         </div>
