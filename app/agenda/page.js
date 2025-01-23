@@ -1,5 +1,5 @@
 'use client'
-import React, { Suspense, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Schedule from '@/components/Schedule';
 import { useSearchParams } from 'next/navigation'
@@ -85,19 +85,17 @@ function Agenda() {
 
 
     return (
-        <Suspense fallback={<div>Loading Agenda...</div>}>
-            <div className="flex flex-col w-screen bg-bg py-20 gap-32 lg:gap-0">
-                <div ref={day1Ref} className='w-full'>
-                    <Schedule styles='h-[70vh] lg:h-[50vh]' schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
-                </div>
-                <div ref={day2Ref} className='w-full'>
-                    <Schedule styles='h-[160vh] lg:h-[140vh]' schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
-                </div>
-                <div ref={day4Ref} className='w-full'>
-                    <Schedule styles='h-[56vh] lg:h-[40vh]' schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
-                </div>
+        <div className="flex flex-col w-screen bg-bg py-20 gap-32 lg:gap-0">
+            <div ref={day1Ref} className='w-full'>
+                <Schedule styles='h-[70vh] lg:h-[50vh]' schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
             </div>
-        </Suspense >
+            <div ref={day2Ref} className='w-full'>
+                <Schedule  styles='h-[160vh] lg:h-[140vh]' schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
+            </div>
+            <div ref={day4Ref} className='w-full'>
+                <Schedule styles='h-[56vh] lg:h-[40vh]' schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
+            </div>
+        </div>
     );
 }
 
