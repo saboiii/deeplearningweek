@@ -75,8 +75,10 @@ function FAQs() {
                         {faqs.map((faq, index) => (
                             <div key={index} className='flex flex-col py-4 w-full'>
                                 <button onClick={() => handleToggle(index)} className='flex text-sm font-medium justify-between text-left items-center w-full h-12'>
-                                    {faq.question}
-                                    <IoChevronForwardOutline size={20} className={`ml-4 inline transition-transform duration-200 ease-in-out ${activeIndex === index ? 'rotate-90' : ''}`} />
+                                    <div className='w-full'>
+                                        {faq.question}
+                                    </div>
+                                    <IoChevronForwardOutline size={20} className={`ml-4 w-[30px] transition-transform duration-200 ease-in-out ${activeIndex === index ? 'rotate-90' : ''}`} />
                                 </button>
                                 {activeIndex === index && (
                                     <div className='flex w-full items-center font-light text-pretty pt-2 text-sm'>{faq.answer}</div>

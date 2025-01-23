@@ -268,7 +268,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                     </div>
                 </div>
                 {errorText && (
-                    <div className='flex px-1 text-xs w-full justify-center mt-6 text-red-500/70 lg:order-none order-6'>{errorText}</div>
+                    <div className='flex px-1 text-center text-xs w-full justify-center mt-6 text-red-500/70 lg:order-none order-6'>{errorText}</div>
                 )};
             </div>
         </div>

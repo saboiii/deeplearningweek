@@ -34,10 +34,9 @@ function Navbar() {
             description: "Check out the schedule of workshops, talks, and networking sessions.",
             caption: "Schedules",
             items: [
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 3", link: '/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda?day=1' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda?day=2' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda?day=3' },
                 // { icon: <IoIosCog size={20} />, label: "Workshop I" },
                 // { icon: <IoIosCog size={20} />, label: "Workshop II" },
                 // { icon: <IoIosCog size={20} />, label: "Workshop III" },
