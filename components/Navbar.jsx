@@ -85,7 +85,7 @@ function Navbar() {
                 </div>
             </div>
             <div className='lg:hidden w-screen flex fixed top-0 left-0 right-0 z-30 h-12'>
-                <div className='flex items-center justify-center w-full h-full mx-6 mt-4'>
+                <div className='flex items-center justify-center w-full h-full mx-4 mt-4'>
                     <div className='flex items-center justify-between gap-4 w-full h-full navMenuContainer pr-2 pl-4'>
                         <div className='flex h-full navMainItem items-center'>
                             <Image

@@ -66,8 +66,8 @@ function FAQs() {
     return (
         <div className='bg-bg w-screen h-screen flex items-center justify-center mb-24 lg:mb-0'>
             <div className='flex gap-4 flex-col lg:flex-row h-[60vh] w-[70vw] mt-8'>
-                <div className='flex flex-col justify-center w-full h-full'>
-                    <h2 className='text-left animate-gradient md:text-[54px] w-full mb-6'>Any questions&#63; We got you.</h2>
+                <div className='flex flex-col justify-center w-full h-full mr-12'>
+                    <h2 className='text-left animate-gradient text-[34px] md:text-[48px] w-full mb-6'>Any questions&#63; We got you.</h2>
                     <p className='text-sm w-full lg:w-5/6 text-pretty leading-6'>Find answers to frequently asked questions about the event, including logistics, participation guidelines, and more.</p>
                 </div>
                 <div className='flex w-full h-full items-center justify-center'>
