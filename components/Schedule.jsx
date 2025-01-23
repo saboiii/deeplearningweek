@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { PiMoonStars, PiSun } from "react-icons/pi";
 
-function Schedule({ schedule, title, icon, description, divs, styles }) {
+function Schedule({ schedule, title, date, description, divs, styles }) {
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -36,7 +36,7 @@ function Schedule({ schedule, title, icon, description, divs, styles }) {
     return (
         <div ref={ref} className={`relative flex flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
             <div className="flex flex-col mb-16 h-[32vh] lg:h-[20vh] w-full items-center justify-center lg:items-start lg:justify-start">
-                <h2 className='flex flex-row lg:flex-col items-center justify-center lg:items-start w-full md:w-2/3 mb-8 text-center lg:text-left text-[36px] lg:text-[60px] xl:text-[72px] animate-gradient'>
+                <h2 className='flex flex-row lg:flex-col items-center justify-center mb-8 lg:items-start w-full md:w-2/3 text-center lg:text-left text-[36px] lg:text-[60px] xl:text-[72px] animate-gradient'>
                     {title == 'Overnight Stay.' ? (
                         <PiMoonStars size={50} className='text-[#b4c0ce] inline mr-4 mb-0 lg:mb-4' />
                     ):(
@@ -44,9 +44,11 @@ function Schedule({ schedule, title, icon, description, divs, styles }) {
                     )}
                     {title}
                 </h2>
-                <p className='text-center lg:text-left text-xs text-pretty w-[70%] lg:w-[60%]'>
+                
+                <p className='text-center lg:text-left text-xs text-pretty w-[70%] mb-4 lg:w-[60%]'>
                     {description}
                 </p>
+                <p className='navDropdownCaption w-full'>{date}</p>
             </div>
             <div className='flex h-full w-[80vw] pl-32 pr-0 md:px-24 lg:px-0 lg:mt-8'>
                 <div className="relative flex-col justify-between flex w-full h-full">

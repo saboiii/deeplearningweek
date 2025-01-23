@@ -87,13 +87,13 @@ function Agenda() {
     return (
         <div className="flex flex-col w-screen bg-bg py-20 gap-32 lg:gap-0">
             <div ref={day1Ref} className='w-full'>
-                <Schedule styles='h-[70vh] lg:h-[50vh]' schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
+                <Schedule styles='h-[70vh] lg:h-[50vh]' date={"28 February, 2025"} schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
             </div>
             <div ref={day2Ref} className='w-full'>
-                <Schedule  styles='h-[160vh] lg:h-[140vh]' schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
+                <Schedule  styles='h-[160vh] lg:h-[140vh]' date={"1 March, 2025"} schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
             </div>
             <div ref={day4Ref} className='w-full'>
-                <Schedule styles='h-[56vh] lg:h-[40vh]' schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
+                <Schedule styles='h-[56vh] lg:h-[40vh]' date={"3 March, 2025"} schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
             </div>
         </div>
     );
