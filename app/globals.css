@@ -26,7 +26,7 @@
   }
 
   h1 {
-    @apply text-[48px] md:text-[84px] font-montserrat font-medium tracking-tighter text-center bg-gradient-to-r from-[#8693a1] via-60% via-slate-50 to-[#9dabbb] bg-clip-text text-transparent;
+    @apply text-[44px] md:text-[84px] font-montserrat font-medium tracking-tighter text-center bg-gradient-to-r from-[#8693a1] via-60% via-slate-50 to-[#9dabbb] bg-clip-text text-transparent;
     background-size: 200% 200%;
   }
 
@@ -65,7 +65,7 @@
 }
 
 .caption {
-  @apply font-montserrat tracking-[20px] font-normal text-center text-xs
+  @apply font-montserrat tracking-[10px] md:tracking-[20px] font-normal text-center text-xs
 }
 
 .sponsorContainer {
