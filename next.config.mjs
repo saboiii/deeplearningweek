@@ -17,7 +17,7 @@ const nextConfig = {
             },
             {
               "key": "Access-Control-Allow-Origin",
-              "value": "*"
+              "value": "https://www.dlweek.com/"
             },
             {
               "key": "Access-Control-Allow-Methods",
