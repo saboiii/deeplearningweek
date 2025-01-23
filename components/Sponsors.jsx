@@ -29,7 +29,6 @@ function Sponsors() {
           <motion.div className='flex h-full items-center justify-center flex-col w-[300px] md:w-[450px]' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3, easeInOut }}>
             <h2 className='flex animate-gradient mb-2 md:mb-4'>Our Sponsors.</h2>
             <p className='flex text-center text-xs mb-4 md:mb-6'>We are proudly sponsored by our partners. Their support helps us to provide meaningful experiences for our participants.</p>
-            <Button text={"Exclusive Workshops"}/>
           </motion.div>
         )}
       </div>

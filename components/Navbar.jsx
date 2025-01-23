@@ -27,23 +27,23 @@ function Navbar() {
         //         { icon: <PiTarget size={20} />, label: "Our Purpose", link:'/about'},
         //         { icon: <IoTrophyOutline size={20} />, label: "Our Achievements", link:'/about' },
         //     ]
-            
+
         // },
         "Agenda": {
             title: "Agenda",
             description: "Check out the schedule of workshops, talks, and networking sessions.",
             caption: "Schedules",
             items: [
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link:'/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link:'/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 3", link:'/agenda' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link:'/agenda' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 3", link: '/agenda' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda' },
                 // { icon: <IoIosCog size={20} />, label: "Workshop I" },
                 // { icon: <IoIosCog size={20} />, label: "Workshop II" },
                 // { icon: <IoIosCog size={20} />, label: "Workshop III" },
                 // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
             ],
-            link:'/agenda'
+            link: '/agenda'
         },
         // "Speakers": {
         //     title: "Speakers",
@@ -60,6 +60,10 @@ function Navbar() {
     function handleMenu() {
         setMenuOpen(!menuOpen);
     }
+
+    const handleLinkClick = () => {
+        setMenuOpen(false);
+    };
 
     return (
         <div className='relative'>
@@ -101,16 +105,18 @@ function Navbar() {
             </div>
             <div className={`lg:hidden fixed w-screen h-screen bg-bg z-[25] pt-24 px-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-300 ease-in-out`}>
                 <div className='flex flex-col gap-4'>
-                    <Link href='/' className='flex'>Home</Link>
-                    <div className='menuDivider'/>
+                    <Link href='/' className='flex' onClick={handleLinkClick}>Home</Link>
+                    <div className='menuDivider' />
                     {/* <Link href='/about' className='flex'>About Us</Link>
                     <div className='menuDivider'/> */}
-                    <Link href='/agenda' className='flex'>Agenda</Link>
-                    <div className='menuDivider'/>
+                    <Link href='/agenda' className='flex' onClick={handleLinkClick}>Agenda</Link>
+                    <div className='menuDivider' />
                     {/* <Link href='/' className='flex'>Speakers</Link>
                     <div className='menuDivider'/> */}
-                    <Link href='/faqs' className='flex'>FAQs</Link>
-                    <div className='menuDivider'/>
+                    <Link href='/faqs' className='flex' onClick={handleLinkClick}>FAQs</Link>
+                    <div className='menuDivider' />
+                    <Link href='/signup' className='flex' onClick={handleLinkClick}>Sign Up</Link>
+                    <div className='menuDivider' />
                 </div>
             </div>
         </div>
