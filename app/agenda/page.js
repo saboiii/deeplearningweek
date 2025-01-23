@@ -1,18 +1,10 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import Schedule from '@/components/Schedule';
+
 
 function Agenda() {
-    const { scrollYProgress } = useScroll();
-    const [rippleIndex, setRippleIndex] = useState(null);
-
-    const divCount = 9;
-    const divHeights = Array.from({ length: divCount }, (_, index) => {
-        const start = index / divCount;
-        const end = (index + 1) / divCount;
-        return useTransform(scrollYProgress, [start, end], ['0%', '100%']);
-    });
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -33,48 +25,52 @@ function Agenda() {
         };
     }, []);
 
-    // useMotionValueEvent(scrollYProgress, 'change', (value) => {
-    //     console.log('Scroll Y Progress:', value);
-    // });
 
-    const handleAnimationComplete = (index) => {
-        console.log("ripple!");
-        if (index + 1 < divCount) {
-            setRippleIndex(index + 1);
-        }
+    const day1schedule = {
+        "1630 - 1800": "Registration + Dinner + Company Booths",
+        "1800 - 2000": "Opening Ceremony + Hacking Begins",
+        "2000 - 2200": "Platinum Sponsors' Workshop",
+        "2200 - 0000": "Coding Challenge",
     };
 
+
+    const day2schedule = {
+        "0000 - 0200": "Poker Tournament + Karaoke (No Gambling!)",
+        "0200 - 0400": "Merch Drops + Stargazing",
+        "0600 - 0730": "Sunrise Chasing + Picture Competition",
+        "0730 - 1000": "Breakfast + Refreshments",
+        "1000 - 1200": "Workshop I",
+        "1200 - 1400": "Lunch",
+        "1400 - 1600": "No Scheduled Events",
+        "1600 - 1800": "Workshop II",
+        "1800 - 1900": "Dinner",
+        "1900 - 2100": "Workshop III"
+    };
+
+
+    const day4schedule = {
+        "1700 - 1900": "Pitching Session",
+        "1900 - 2000": "Refreshments + Networking (Finalists)",
+        "2000 - 2100": "Results + Prize Ceremony",
+    };
+
+    const days = {
+        "Day 1.": "Day 1 begins with registration, followed by dinner and opportunities to participate in workshops and visit booths. The opening ceremony will officially kick off the start of the coding sprint.",
+        "Overnight Stay.": "For day two, we're hosting an overnight stay. We'll have workshops, meals, and time for relaxation throughout the day, ending with more interactive sessions and networking events.",
+        "Day 4.": "It's finally demo day: Showcase your project, network with other teams, and celebrate the winners at the awards ceremony.",
+    }
+
+    // const day3schedule = {
+    //     "0000 - 2359": "Judging Session",
+    // };
+
+
+
     return (
-        <div className="flex flex-col w-screen">
-            <div className="flex bg-bg w-full h-[20vh]" />
-
-            <div className="flex w-full h-[200vh] my-28">
-                <div className="bg-bg w-full h-full" />
-
-                <div className="flex-col justify-between flex items-center w-[10px] h-full">
-                    <div className="dot" />
-                    {divHeights.map((height, index) => (
-                        <React.Fragment key={index}>
-                            <div className="flex w-[1.5px] h-full my-4 rounded-full overflow-hidden">
-                                <motion.div
-                                    className="flex w-full bg-[#bcbdde]"
-                                    style={{
-                                        height,
-                                    }}
-                                    animate={{ height }}
-                                    onAnimationComplete={() => handleAnimationComplete(index)} // Trigger ripple effect after animation
-                                />
-                            </div>
-                            <div
-                                className={`dot ${rippleIndex === index + 1 ? 'ripple' : ''}`} // Apply ripple class to the next dot
-                            />
-                        </React.Fragment>
-                    ))}
-
-                </div>
-
-                <div className="bg-bg w-full h-full" />
-            </div>
+        <div className="flex flex-col w-screen bg-bg py-20 gap-32 lg:gap-0">
+            <Schedule styles='h-[70vh] lg:h-[50vh]' schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
+            <Schedule styles='h-[160vh] lg:h-[140vh]' schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
+            <Schedule styles='h-[56vh] lg:h-[40vh]' schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
         </div>
     );
 }

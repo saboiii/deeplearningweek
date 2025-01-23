@@ -14,6 +14,7 @@ function Footer() {
                         width={120}
                         height={120}
                         alt='DLW Logo'
+                        loading='lazy'
                         className='flex object-fit mt-1 w-auto h-10'
                     />
                 </div>

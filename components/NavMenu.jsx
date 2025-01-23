@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { AnimatePresence, motion, circInOut } from 'framer-motion';
+import Link from 'next/link';
 
 function NavMenu({menuData}) {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -27,14 +28,14 @@ function NavMenu({menuData}) {
     <div className="fixed top-0 left-0 right-0 z-10 h-20">
       <div className="relative flex items-center justify-center h-full">
         <div className="flex justify-between gap-4 navMenuContainer px-6">
-          <div className="flex navMenuItem">Home</div>
-          <div
+          <Link href='/' className="flex navMenuItem">Home</Link>
+          {/* <div
             className="flex navMenuItem"
             onMouseEnter={() => handleMouseEnter("About Us")}
             onMouseLeave={handleMouseLeave}
           >
             About Us
-          </div>
+          </div> */}
           <div
             className="flex navMenuItem"
             onMouseEnter={() => handleMouseEnter("Agenda")}
@@ -49,7 +50,7 @@ function NavMenu({menuData}) {
           >
             Speakers
           </div> */}
-          <div className="flex navMenuItem">FAQs</div>
+          <Link href='/faqs' className="flex navMenuItem">FAQs</Link>
         </div>
 
         <AnimatePresence>
@@ -73,10 +74,10 @@ function NavMenu({menuData}) {
               <div className="navDropdownMenuBox">
                 <p className="navDropdownCaption">{menuData[activeMenu].caption}</p>
                 {menuData[activeMenu].items.map((item, index) => (
-                  <div key={index} className="navDropdownMenuItem">
+                  <Link href={item.link} key={index} className="navDropdownMenuItem">
                     {item.icon}
                     {item.label}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </motion.div>
