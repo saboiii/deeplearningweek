@@ -34,7 +34,7 @@ function Schedule({ schedule, title, date, description, divs, styles }) {
 
 
     return (
-        <div ref={ref} className={`relative flex flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
+        <div ref={ref} className={`relative items-center flex mt-4 flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
             <div className="flex flex-col mb-16 h-[32vh] lg:h-[20vh] w-full items-center justify-center lg:items-start lg:justify-start">
                 <h2 className='flex flex-row lg:flex-col items-center justify-center mb-8 lg:items-start w-full md:w-2/3 text-center lg:text-left text-[28px] md:text-[32px] lg:text-[60px] xl:text-[72px] animate-gradient'>
                     {title == 'Overnight Stay.' ? (
@@ -50,7 +50,7 @@ function Schedule({ schedule, title, date, description, divs, styles }) {
                 </p>
                 <p className='navDropdownCaption w-full justify-center text-center lg:justify-start mb-4 lg:text-left'>{date}</p>
             </div>
-            <div className='flex h-full w-[80vw] pl-32 pr-0 md:px-24 lg:px-0 lg:mt-8'>
+            <div className='flex h-full w-[70vw] lg:w-[80vw] pl-32 pr-0 md:px-24 lg:px-0 lg:mt-8'>
                 <div className="relative flex-col justify-between flex w-full h-full">
                     <div className="absolute dot w-[10px] -left-[1.5px]" />
                     <div className='absolute -left-[120px] -top-4 py-2 text-xs flex items-center justify-center rounded-full border border-[#2a2b3c]/80 bg-[#0f121a]/70 w-[100px]'>
