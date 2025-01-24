@@ -10,7 +10,7 @@ function FAQs() {
             answer: 'The hackathon is open to university students across Singapore, including undergraduate, postgraduate, and PhD students from NTU, NUS, SIT, SUTD, SMU, and SUSS. Participants of all skill levels in AI and machine learning are welcome. However, please note that some tracks and prizes will be exclusively reserved for undergraduate students.',
         },
         {
-            question: 'Is it open for people with no Computer Science Background ?',
+            question: 'Is it open for people with no Computer Science Background?',
             answer: 'Yes, the hackathon is open to participants from all backgrounds, not just those with a Computer Science background. Beginners and non-technical participants are welcome, and resources such as workshops, guides, and tools will be provided to help you get started.',
         },
         {
@@ -19,15 +19,15 @@ function FAQs() {
         },
         {
             question: 'How many members can a team have?',
-            answer: 'Teams can have 2 to 5 members. If you don&#146;t have a team, don&#146;t worry—you&#146;ll have the opportunity to form one during the registration session at the event.',
+            answer: 'Teams can have 2 to 5 members. If you don\'t have a team, don\'t worry—you\'ll have the opportunity to form one during the registration session at the event.',
         },
         {
             question: 'Will I be provided with resources to get started?',
-            answer: 'Yes, participants will be provided with a variety of resources to get started! These include workshops, APIs and tools, cloud credits and online courses as well as documentation and guides.',
+            answer: 'Yes, participants will be provided with a variety of resources to get started! These include workshops, APIs and tools, cloud credits, and online courses as well as documentation and guides.',
         },
         {
             question: 'Do I need to form a team beforehand?',
-            answer: 'No, you don&#146;t need to form a team beforehand! You can register individually. If you already have a team, you can register together. Teams can consist of 2 to 5 members.',
+            answer: 'No, you don\'t need to form a team beforehand! You can register individually. If you already have a team, you can register together. Teams can consist of 2 to 5 members.',
         },
         {
             question: 'What are the judging criteria for the hackathon?',
@@ -58,6 +58,7 @@ function FAQs() {
             answer: 'Yes, security measures will be in place to ensure the safety of all overnight participants, including restricted access to the venue for registered individuals only and on-site monitoring throughout the event.',
         },
     ];
+    
 
     function handleToggle(index) {
         setActiveIndex(index === activeIndex ? null : index);

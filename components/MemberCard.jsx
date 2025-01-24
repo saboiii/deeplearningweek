@@ -221,7 +221,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                         </select>
                     </div>
                 </div>
-                <input type='text' onChange={(e) => setName(e.target.value)} placeholder='Full Name' name="name" value={name} className='placeholderIndicator lg:order-none lg:mt-0 mt-24 order-1 flex ml-1 h-10 z-30 text-[24px] outline-none text-white font-medium tracking-tight  bg-transparent' />
+                <input type='text' onChange={(e) => setName(e.target.value)} placeholder='Full Name' name="name" value={name} className='placeholderIndicator lg:order-none lg:mt-0 mt-16 order-1 flex ml-1 h-10 z-30 text-[24px] outline-none text-white font-medium tracking-tight  bg-transparent' />
                 <select type='text' onChange={(e) => setUni(e.target.value)} value={uni} className='lg:order-none order-2 flex text-sm outline-none textIndicator font-medium tracking-tight z-30 bg-transparent mb-0 lg:mb-4'>
                     <option value="" disabled>
                         Select University
