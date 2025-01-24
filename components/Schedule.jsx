@@ -50,7 +50,7 @@ function Schedule({ schedule, title, date, description, divs, styles }) {
                 </p>
                 <p className='navDropdownCaption w-full justify-center text-center lg:justify-start mb-4 lg:text-left'>{date}</p>
             </div>
-            <div className='flex h-full w-[70vw] lg:w-[80vw] pl-32 pr-0 md:px-24 lg:px-0 lg:mt-8'>
+            <div className='flex h-full w-[85vw] lg:w-[80vw] pl-[48%] pr-0 md:px-24 lg:px-0 lg:mt-8'>
                 <div className="relative flex-col justify-between flex w-full h-full">
                     <div className="absolute dot w-[10px] -left-[1.5px]" />
                     <div className='absolute -left-[120px] -top-4 py-2 text-xs flex items-center justify-center rounded-full border border-[#2a2b3c]/80 bg-[#0f121a]/70 w-[100px]'>
