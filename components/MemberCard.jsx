@@ -264,12 +264,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                         </div>
                         <input type='text' onChange={(e) => setDiet(e.target.value)} placeholder='Dietary Preferences' name="diet" value={diet} className='flex text-xs px-3 py-2 text-[#c1c1d1] placeholder:text-[#595975] rounded-xl outline-none border border-[#504d87]/30 hover:border-[#504d87] duration-200 transition ease-in-out font-medium tracking-tight z-30 bg-transparent' />
                         <div className='flex items-center h-full ml-1 mt-3 lg:mt-0'>
-                            <input
-                                type='checkbox'
-                                onChange={(e) => setNight(e.target.checked)}
-                                checked={night}
-                                className='flex w-6 h-6 lg:w-4 lg:h-4 rounded-xl outline-none border mr-4 lg:mr-2 border-[#504d87]/30 hover:border-[#504d87] duration-200 transition ease-in-out z-30 bg-transparent'
-                            />
+                            <input type='checkbox' onChange={(e) => setNight(e.target.value)}  value={night} className='flex w-6 h-6 lg:w-4 lg:h-4 rounded-xl outline-none border mr-4 lg:mr-2 border-[#504d87]/30 hover:border-[#504d87] duration-200 transition ease-in-out z-30 bg-transparent' />
                             <span className='text-xs text-[#c1c1d1] mr-4'>Staying overnight?</span>
                         </div>
                     </div>
