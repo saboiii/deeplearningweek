@@ -21,6 +21,10 @@
 
 
 @layer base{
+  html {
+    color-scheme: light !important;
+  }
+  
   body {
     @apply bg-black text-[#d1e1f3] font-montserrat
   }
