@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from '@/components/Footer';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "Deep Learning Week",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
+        <Analytics />
         <Footer/>
       </body>
     </html>
