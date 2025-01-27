@@ -108,7 +108,7 @@ function TeamMembers({ exitFunction }) {
     
             const courseRegex = /^[a-zA-Z0-9]+\/[a-zA-Z0-9]+$/;
             if (course && !courseRegex.test(course)) {
-                setErrorText(`Invalid course/year format for member ${index + 1}.`);
+                setErrorText(`Invalid course/year format for member ${index + 1}. It must be alphanumeric and separated by a "/".`);
                 cancelSubmission();
                 return;
             }
