@@ -26,16 +26,16 @@ function SoloMember({ exitFunction }) {
             { field: 'tele', message: 'Telegram handle is a required field.' },
             { field: 'course', message: 'Course/Year is a required field.' },
             { field: 'size', message: 'T-shirt size is a required field.' },
-            { field: 'night', message: 'Night preference is a required field.' },
         ];
     
         for (const { field, message } of requiredFields) {
-            if (!memberData[field] || memberData[field].trim() === "") {
+            if (!memberData[field] || (typeof memberData[field] === 'string' && memberData[field].trim() === "")) {
                 setErrorText(message);
                 cancelSubmission();
                 return;
             }
         }
+        
     
         const emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (memberData.email && !emailCheck.test(memberData.email)) {
@@ -76,6 +76,7 @@ function SoloMember({ exitFunction }) {
                 return;
             }
         }
+
     
         try {
             setLoading(true);

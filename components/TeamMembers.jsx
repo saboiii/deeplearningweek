@@ -67,16 +67,17 @@ function TeamMembers({ exitFunction }) {
                 { field: 'tele', message: `Telegram handle is required for member ${index + 1}.` },
                 { field: 'course', message: `Course/Year is required for member ${index + 1}.` },
                 { field: 'size', message: `T-shirt size is required for member ${index + 1}.` },
-                { field: 'night', message: `Night preference is required for member ${index + 1}.` },
             ];
     
+
             for (const { field, message } of requiredFields) {
-                if (!member[field] || member[field].trim() === "") {
+                if (!member[field] || (typeof member[field] === 'string' && member[field].trim() === "")) {
                     setErrorText(message);
                     cancelSubmission();
                     return;
                 }
             }
+            
     
             if (uni === 'Nanyang Technological University') {
                 if (!ntuEmail || ntuEmail.trim() === "") {
