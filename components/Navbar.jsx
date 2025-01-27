@@ -102,7 +102,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className={`lg:hidden fixed w-screen h-screen bg-bg z-[25] pt-24 px-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-300 ease-in-out`}>
+            <div className={`lg:hidden fixed w-screen h-screen bg-bg bg-repeat-y z-[25] pt-24 px-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-300 ease-in-out`}>
                 <div className='flex flex-col gap-4'>
                     <Link href='/' className='flex' onClick={handleLinkClick}>Home</Link>
                     <div className='menuDivider' />

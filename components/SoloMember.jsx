@@ -95,8 +95,8 @@ function SoloMember({ exitFunction }) {
     
             memberCardRef.current.resetFields();
             setErrorText("");
-            setLoading(false);
             router.push('/confirmed');
+            setLoading(false);
         } catch (error) {
             setLoading(false);
             cancelSubmission();

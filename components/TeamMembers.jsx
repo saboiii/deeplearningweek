@@ -46,9 +46,15 @@ function TeamMembers({ exitFunction }) {
         });
     
         const finalData = {
-            teamName: teamName || "Unnamed Team",
+            teamName: teamName || "",
             members: Object.values(allMemberData),
         };
+
+        if (members.length > 1 && finalData.teamName === "") {
+            setErrorText("Team name is required for team registrations.");
+            cancelSubmission();
+            return;
+        }
     
         for (const [index, member] of finalData.members.entries()) {
             const { name, uni, email, ntuEmail, tele, course, gender, size, night } = member;
@@ -132,8 +138,8 @@ function TeamMembers({ exitFunction }) {
             });
     
             setErrorText("");
-            setLoading(false);
             router.push('/confirmed');
+            setLoading(false);
         } catch (error) {
             setLoading(false);
             cancelSubmission();
@@ -205,8 +211,8 @@ function TeamMembers({ exitFunction }) {
     }, []);
 
     return (
-        <div className='relative flex flex-col gap-8 w-screen items-center px-8 md:px-12'>
-            <div className={`fixed flex items-center justify-center w-screen h-screen bg-black/20 z-[20] ${toggleMenu ? "flex" : "hidden"}`}>
+        <div className='relative flex flex-col gap-8 w-screen items-center px-8 md:px-12 overflow-hidden'>
+            <div className={`fixed flex items-center justify-center w-screen h-screen bg-black/90 z-[20] ${toggleMenu ? "flex" : "hidden"}`}>
                 <div className='flex flex-col items-center gap-3 justify-center'>
                     <h2 className='flex text-3xl'>Are you sure?</h2>
                     <p className='flex text-[#9fa6af] text-xs mb-3 text-center px-24'>You can't edit this form once it has been submitted!</p>
@@ -224,7 +230,7 @@ function TeamMembers({ exitFunction }) {
                 <PiHandTap size={16} className='inline mr-2' />
                 Tap on the fields to edit form.
             </div>
-            <input type='text' onChange={(e) => setTeamName(e.target.value)} placeholder='Enter team name' name="teamName" value={teamName} className='outline-none placeholderIndicator text-[36px] md:text-[64px] font-montserrat font-semibold caret-[#525562] tracking-tighter text-center bg-gradient-to-r from-[#8693a1] via-60% via-slate-50 to-[#9dabbb] bg-clip-text text-transparent ' />
+            <input type='text' onChange={(e) => setTeamName(e.target.value)} placeholder='Enter team name' name="teamName" value={teamName} className='outline-none w-full overflow-scroll placeholderIndicator bg-transparent text-[30px] md:text-[36px] lg:text-[64px] font-montserrat font-semibold caret-[#525562] tracking-tighter text-center text-slate-50' />
             <p className='flex text-center text-[9px] lg:text-xs px-14 tracking-wider lg:px-0 w-full md:w-1/2 lg:w-[30%] text-[#b9c2e2] mb-8'>
                 You can have up 2-5 members in your team. Add members using the button underneath this text and click the
                 X icon to delete them.<br /><br /> The topmost profile card will automatically

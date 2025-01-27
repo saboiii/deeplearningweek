@@ -2,7 +2,7 @@ import React from 'react'
 
 function PrivacyPolicy() {
     return (
-        <div className='flex flex-col w-screen py-24 bg-bg items-center justify-center px-12 lg:px-24'>
+        <div className='flex flex-col h-screen w-screen py-24 bg-bg bg-repeat items-center justify-center px-12 lg:px-24'>
             <div className='flex flex-col w-full lg:w-[60%] items-center justify-center gap-4 text-pretty'>
                 <h2 className='animate-gradient w-full text-center'>Privacy policy.</h2>
                 <p className='navDropdownCaption mb-8 w-full justify-center text-center'>Last updated 24 January, 2025</p>

@@ -37,7 +37,7 @@ function Title() {
 
 
   return (
-    <div ref={titleRef} className="relative bg-bg flex w-[95vw] h-[95vh] flex-col rounded-b-[70px] overflow-clip">
+    <div ref={titleRef} className="relative bg-bg bg-repeat flex w-[95vw] h-[95vh] flex-col rounded-b-[70px] overflow-clip">
       <div className='absolute w-full h-full left-0 right-0 z-10'>
         <motion.div
           className="flex w-full h-full items-center justify-center"
