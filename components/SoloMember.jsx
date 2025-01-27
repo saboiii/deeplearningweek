@@ -57,7 +57,8 @@ function SoloMember({ exitFunction }) {
             return;
         }
     
-        const courseYearPattern = /^[a-zA-Z0-9]+\/[a-zA-Z0-9]+$/;
+        const courseYearPattern = /^[a-zA-Z0-9\s]+\/[a-zA-Z0-9\s]+$/;
+
         if (memberData.course && !courseYearPattern.test(memberData.course)) {
             setErrorText('Course/Year must be alphanumeric and separated by a "/".');
             cancelSubmission();
