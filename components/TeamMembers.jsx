@@ -152,6 +152,7 @@ function TeamMembers({ exitFunction }) {
     const cancelSubmission = () => {
         setToggleMenu(false);
         setSubmissionMode(false);
+        setLoading(false);
     };
 
     const startSubmission = () => {
@@ -184,8 +185,16 @@ function TeamMembers({ exitFunction }) {
 
     const deleteMember = (id) => {
         setDeletingId(id);
+    
         setTimeout(() => {
-            setMembers(members.filter((member) => member.id !== id));
+            const updatedMembers = members.filter((member) => member.id !== id);
+            setMembers(updatedMembers);
+            if (updatedMembers.length > 0 && !updatedMembers[0].isLeader) {
+                updatedMembers[0].isLeader = true;
+            }
+    
+            setCanAddMembers(updatedMembers.length < 5);
+            
             setDeletingId(null);
         }, 500);
     };

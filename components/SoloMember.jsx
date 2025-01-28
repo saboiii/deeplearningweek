@@ -92,6 +92,7 @@ function SoloMember({ exitFunction }) {
             if (!response.ok) {
                 const errorData = await response.json();
                 setErrorText(errorData.error || "An error occurred while submitting the form.");
+                cancelSubmission();
                 return;
             }
     
@@ -109,6 +110,7 @@ function SoloMember({ exitFunction }) {
     const cancelSubmission = () => {
         setToggleMenu(false);
         setSubmissionMode(false);
+        setLoading(false);
     };
 
     const startSubmission = () => {
