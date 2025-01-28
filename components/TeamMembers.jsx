@@ -36,14 +36,16 @@ function TeamMembers({ exitFunction }) {
     const handleSubmit = async () => {
         const allMemberData = {};
     
-        memberCardRef.current.forEach((memberRef, index) => {
+        members.forEach((member, index) => {
+            const memberRef = memberCardRef.current[index];
             if (memberRef) {
                 const memberData = memberRef.getMemberData();
                 if (memberData) {
-                    allMemberData[`member${index}`] = memberData;
+                    allMemberData[`member${member.id}`] = memberData;
                 }
             }
         });
+        
     
         const finalData = {
             teamName: teamName || "",
@@ -60,13 +62,13 @@ function TeamMembers({ exitFunction }) {
             const { name, uni, email, ntuEmail, tele, course, gender, size, night } = member;
     
             const requiredFields = [
-                { field: 'name', message: `Name is required for member ${index + 1}.` },
-                { field: 'uni', message: `University is required for member ${index + 1}.` },
-                { field: 'email', message: `Email is required for member ${index + 1}.` },
-                { field: 'gender', message: `Gender is required for member ${index + 1}.` },
-                { field: 'tele', message: `Telegram handle is required for member ${index + 1}.` },
-                { field: 'course', message: `Course/Year is required for member ${index + 1}.` },
-                { field: 'size', message: `T-shirt size is required for member ${index + 1}.` },
+                { field: 'name', message: `Name is required for member ${member.id}.` },  // Use member.id here
+                { field: 'uni', message: `University is required for member ${member.id}.` },
+                { field: 'email', message: `Email is required for member ${member.id}.` },
+                { field: 'gender', message: `Gender is required for member ${member.id}.` },
+                { field: 'tele', message: `Telegram handle is required for member ${member.id}.` },
+                { field: 'course', message: `Course/Year is required for member ${member.id}.` },
+                { field: 'size', message: `T-shirt size is required for member ${member.id}.` },
             ];
     
 
@@ -188,18 +190,15 @@ function TeamMembers({ exitFunction }) {
     
         setTimeout(() => {
             const updatedMembers = members.filter((member) => member.id !== id);
-            setMembers(updatedMembers);
             if (updatedMembers.length > 0 && !updatedMembers[0].isLeader) {
                 updatedMembers[0].isLeader = true;
             }
-    
+            setMembers(updatedMembers);
             setCanAddMembers(updatedMembers.length < 5);
             
             setDeletingId(null);
         }, 500);
     };
-
-    
 
     useEffect(() => {
         const lenis = new Lenis({
