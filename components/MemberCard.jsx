@@ -167,7 +167,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
 
                 </div>
 
-                <img
+                <Image
                     src={banner}
                     height={1080}
                     width={1920}

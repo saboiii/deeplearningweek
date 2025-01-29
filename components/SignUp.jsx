@@ -3,6 +3,7 @@ import { motion, useInView, easeInOut } from "framer-motion";
 import { useEffect, useState, useRef } from 'react';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 function SignUp() {
     const ref = useRef(null);
@@ -28,8 +29,8 @@ function SignUp() {
     return (
         <div ref={ref} className='flex justify-end h-[80vh] md:h-[70vh] w-screen pt-20 px-8'>
             <div className={`flex h-full rounded-t-3xl overflow-hidden md:rounded-t-[70px] justify-center w-full items-center ${bgLoaded ? '' : 'bg-gradient-to-b from-[#101e3d]/70 to-[#090b10]/70'}`}>
-                <img
-                    src='/images/signup.png'
+                <Image
+                    src='/images/signup.jpg'
                     height={1080}
                     width={1920}
                     quality={100}

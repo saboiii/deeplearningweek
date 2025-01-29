@@ -30,10 +30,7 @@ export default {
         ripple: "ripple 0.7s ease-in-out",
       },
       backgroundImage: {
-        'sg': "url('/images/sg.png')",
-        'sg2': "url('/images/sg2.png')",
         'bg': "url('/images/bg.png')",
-        'signup': "url('/images/signup.png')",
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
