@@ -62,14 +62,14 @@ function Title() {
       </div>
       <div className={`flex w-full h-full items-center justify-center ${bgLoaded ? '' : 'bg-gradient-to-b from-[#101e3d]/70 to-[#090b10]/70'}`}>
         <Image
-          src='/images/sg.jpg'
+          src='https://res.cloudinary.com/dewzkcqfr/image/upload/v1738143009/sg_jqwt2m.jpg'
           height={1080}
           quality={100}
           width={1920}
           className='object-cover object-center w-full h-full'
           alt='Background'
           placeholder="blur"
-          blurDataURL='/images/sg2low.jpg'
+          blurDataURL='/images/sglow.jpg'
           onLoad={() => setBgLoaded(true)}
           onError={() => setBgLoaded(false)}
         />
@@ -83,11 +83,11 @@ function Title() {
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       >
         <Image
-          src='/images/sg2.jpg'
+          src='https://res.cloudinary.com/dewzkcqfr/image/upload/v1738142725/sg2_w1zxn4.jpg'
           quality={100}
           height={1080}
           width={1920}
-          blurDataURL='/images/sglow.jpg'
+          blurDataURL='/images/sg2low.jpg'
           className='object-cover object-center w-full h-full'
           alt='Background'
           placeholder="blur"
