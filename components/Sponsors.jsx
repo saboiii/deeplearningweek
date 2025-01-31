@@ -79,13 +79,13 @@ function Sponsors() {
         </motion.div>
 
         <motion.div className='sponsorContainerEnd' initial={{ x: 200, opacity: 0 }} animate={sponsorBannerAnimationTop} transition={{ duration: 1, type: "tween", easeInOut }}>
-          <div className='bronzeSponsorBanner animate'>
+          <div className='silverSponsorBanner animate'>
             <Image
-              src='/images/jane-street.png'
-              height={100}
-              width={100}
-              alt='Jane Street logo'
-              className='object-contain blur-sm flex md:translate-y-[-3px] w-16 md:w-auto h-auto'
+              src='/images/aws.png'
+              height={90}
+              width={90}
+              alt='AWS logo'
+              className='object-contain flex w-16 md:w-auto h-auto'
             />
           </div>
         </motion.div>
