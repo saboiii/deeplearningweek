@@ -23,7 +23,7 @@ const nextConfig = {
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com/; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; object-src 'self' data:; base-uri 'self'; form-action 'self'; media-src 'self'; upgrade-insecure-requests; frame-ancestors 'none'; worker-src 'self'; connect-src 'self'"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; object-src 'self' data:; base-uri 'self'; form-action 'self'; media-src 'self'; upgrade-insecure-requests; frame-ancestors 'none'; worker-src 'self'; connect-src 'self' https://www.google-analytics.com"
           },
           {
             "key": "Access-Control-Allow-Origin",
