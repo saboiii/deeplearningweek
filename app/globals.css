@@ -73,15 +73,15 @@
 }
 
 .sponsorContainer {
-  @apply flex border-l w-[28vw] h-full p-4 border-[#2a2b3c]
+  @apply  border-l w-[42vw] md:w-[28vw] h-full p-4 border-[#2a2b3c]
 }
 
 .sponsorContainerEnd {
-  @apply flex border-l border-r w-[28vw] h-full p-4 border-[#2a2b3c]
+  @apply  border-l border-r  w-[42vw] md:w-[28vw] h-full p-4 border-[#2a2b3c]
 }
 
 .sponsorBanner{
-  @apply relative flex border-t border-b border-[#2a2b3c] w-full h-[15vh] md:h-1/5 items-center justify-center
+  @apply relative flex border-t border-b border-[#2a2b3c] w-full h-[18vh] md:h-1/5 items-center justify-center
 }
 
 .platinumSponsorBanner {
