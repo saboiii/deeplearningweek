@@ -34,8 +34,8 @@ function Schedule({ schedule, title, date, description, divs, styles }) {
 
 
     return (
-        <div ref={ref} className={`relative items-center flex mt-4 flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
-            <div className="flex flex-col mb-16 h-[32vh] lg:h-[20vh] w-full items-center justify-center lg:items-start lg:justify-start">
+        <div ref={ref} className={`relative items-start flex mt-4 flex-col lg:flex-row w-full lg:my-28 px-10 sm:px-24 ${styles}`}>
+            <div className="flex flex-col mb-16 w-full items-center justify-center lg:items-start lg:justify-start">
                 <h2 className='flex flex-row lg:flex-col items-center justify-center mb-8 lg:items-start w-full md:w-2/3 text-center lg:text-left text-[28px] md:text-[32px] lg:text-[60px] xl:text-[72px] animate-gradient'>
                     {title == 'Overnight Stay.' ? (
                         <PiMoonStars size={50} className='text-[#b4c0ce] inline mr-4 mb-0 lg:mb-4' />
