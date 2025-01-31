@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { sendGAEvent } from '@next/third-parties/google'
 
 function SignUp() {
     const ref = useRef(null);
@@ -24,7 +23,6 @@ function SignUp() {
             top: 0,
             behavior: 'smooth',
         });
-        sendGAEvent('event', 'buttonClicked', { value: 'registerNow' });
         router.push('/signup');
     }
 
