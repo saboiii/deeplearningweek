@@ -232,6 +232,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                     <option value="Singapore Institute of Technology">Singapore Institute of Technology</option>
                     <option value="Singapore Management University">Singapore Management University</option>
                     <option value="Singapore University of Social Sciences">Singapore University of Social Sciences</option>
+                    <option value="Singapore Institute of Management">Singapore Institute of Management</option>
                 </select>
                 {uni === 'Nanyang Technological University' && (
                     <motion.div
