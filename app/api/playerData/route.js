@@ -1,7 +1,16 @@
 import connectDB from '@/lib/db';
 import Data from "@/models/data"
+import { auth } from '@clerk/nextjs/server';
 
 export async function POST(request) {
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+    });
+  }
+
   try {
     const data = await request.json();
     const { playerData, username } = data;

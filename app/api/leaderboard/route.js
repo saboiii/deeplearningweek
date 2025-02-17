@@ -1,7 +1,16 @@
 import connectDB from '@/lib/db';
 import Player from "@/models/player";
+import { auth } from '@clerk/nextjs/server';
 
 export async function GET(request) {
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+    });
+  }
+
   try {
     await connectDB();
     const leaderboard = await Player.find()
@@ -21,6 +30,14 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+    });
+  }
+
   try {
     const data = await request.json();
     const { username, highScore } = data;
