@@ -179,7 +179,7 @@
 }
 
 .authContainer{
-  @apply flex flex-col gap-2 w-1/3 rounded-3xl px-8 py-12 border border-[#1e1d31] bg-gradient-to-br from-[#212738]/40 to-[#1b1b33]/40 backdrop-blur-sm
+  @apply flex flex-col gap-2 w-full h-full lg:h-[60%] justify-center lg:w-1/3 rounded-3xl px-12 md:px-32 lg:px-8 py-12 border border-[#1e1d31] bg-gradient-to-br from-[#212738]/20 to-[#1b1b33]/20 lg:from-[#212738]/40 lg:to-[#1b1b33]/40 backdrop-blur-sm
 }
 
 .authButton{
@@ -203,7 +203,7 @@
 }
 
 .authTitle{
-  @apply text-2xl md:text-[36px] mb-4 items-center justify-center w-full text-center leading-tight font-montserrat font-medium tracking-tighter text-slate-200 ;
+  @apply text-[36px] mb-4 items-center justify-center w-full text-center leading-tight font-montserrat font-medium tracking-tighter text-slate-200 ;
 }
 
 .authDivider{

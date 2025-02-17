@@ -17,7 +17,8 @@ class MainMenu extends Phaser.Scene {
         const lines = [
             "import tensorflow as tf",
             "newUser = MainModel(input_shape=(500, 10))",
-            "print('Welcome to our secret minigame')",
+            "print('There's an AI embedded in the game')",
+            "print('that will try its best to kill you.')",
             "print('Press ENTER to play')",
             "print('Use WASD or arrow keys to move')"
         ];

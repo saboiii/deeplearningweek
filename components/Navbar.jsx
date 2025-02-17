@@ -116,6 +116,8 @@ function Navbar() {
                     <div className='menuDivider' />
                     <Link href='/signup' className='flex' onClick={handleLinkClick}>Sign Up</Link>
                     <div className='menuDivider' />
+                    <Link href='/game' className='flex' onClick={handleLinkClick}>Play</Link>
+                    <div className='menuDivider' />
                 </div>
             </div>
         </div>
