@@ -1310,6 +1310,7 @@ __metadata:
     mongoose: "npm:^8.9.5"
     next: "npm:^15.1.6"
     next-gtag: "npm:^0.2.0"
+    nodemailer: "npm:^6.10.0"
     phaser: "npm:^3.88.2"
     phaser3-rex-plugins: "npm:^1.80.13"
     postcss: "npm:^8"
@@ -2441,6 +2442,13 @@ __metadata:
   version: 2.0.19
   resolution: "node-releases@npm:2.0.19"
   checksum: 10c0/52a0dbd25ccf545892670d1551690fe0facb6a471e15f2cfa1b20142a5b255b3aa254af5f59d6ecb69c2bec7390bc643c43aa63b13bf5e64b6075952e716b1aa
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^6.10.0":
+  version: 6.10.0
+  resolution: "nodemailer@npm:6.10.0"
+  checksum: 10c0/39fd35d65b021b94c968eeac82a66dd843021b6ba53c659d01b1dd4cda73b6a2f96e20facfe500efa4b8d3f1cb23df10245c6c86b2bde5f806691ed17ce87826
   languageName: node
   linkType: hard
 

@@ -20,6 +20,7 @@
     "mongoose": "^8.9.5",
     "next": "^15.1.6",
     "next-gtag": "^0.2.0",
+    "nodemailer": "^6.10.0",
     "phaser": "^3.88.2",
     "phaser3-rex-plugins": "^1.80.13",
     "react": "^19.0.0",

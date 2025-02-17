@@ -64,7 +64,7 @@ function Game() {
   };
 
   useEffect(() => {
-    fetchLeaderboard();  // Fetch only when page loads
+    fetchLeaderboard();
   }, []);
 
 

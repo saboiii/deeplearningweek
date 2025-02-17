@@ -18,7 +18,6 @@ const GameComponent = ({ pause }) => {
 
     const savePlayerData = async () => {
         try {
-            console.log("save data", playerData, user?.username)
             if (gameOver && playerData && isSignedIn) {
                 await axios.post('/api/playerData', {
                     playerData, username: user?.username 
@@ -31,7 +30,6 @@ const GameComponent = ({ pause }) => {
 
     const saveHighScore = async () => {
         try {
-            console.log("save score", score, user?.username)
             if (gameOver && score && isSignedIn && user) {
                 const response = await axios.post('/api/leaderboard', {
                     username: user.username,
