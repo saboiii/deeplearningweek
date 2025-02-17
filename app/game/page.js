@@ -2,19 +2,12 @@
 import { SignOutButton, UserButton, UserProfile } from '@clerk/nextjs'
 import React, { useEffect, useState, memo } from 'react'
 import { Protect } from '@clerk/nextjs'
-import GameComponent from '@/game/GameComponent'
 import { GoSignOut } from "react-icons/go";
 import { CiUser } from "react-icons/ci"
 
-const MemoizedGameComponent = memo(GameComponent);
+import dynamic from 'next/dynamic';
 
-const DotIcon = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-      <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
-    </svg>
-  )
-}
+const MemoizedGameComponent = dynamic(() => import('@/game/GameComponent'), { ssr: false });
 
 function Game() {
   const [pause, setPause] = useState(false);
@@ -22,6 +15,8 @@ function Game() {
   const [fetching, setFetching] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleKeydown = (event) => {
       if (event.key === "Escape") {
         setPause(true);
