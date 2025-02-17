@@ -52,7 +52,6 @@ The Deep Learning Week Team
 MLDA@EEE`,
       };
 
-
       try {
         await transporter.sendMail(mailOptions);
         console.log(`Confirmation email sent to ${email}`);
@@ -71,9 +70,10 @@ MLDA@EEE`,
 
       const savedTeam = await teamParticipant.save();
 
-
-      const firstMemberEmail = membersArray[0].email;
-      await sendConfirmationEmail(firstMemberEmail, data.team.teamName);
+      // Send confirmation email to each member of the team
+      for (const member of membersArray) {
+        await sendConfirmationEmail(member.email, member.name);
+      }
 
       return new Response(JSON.stringify(savedTeam), { status: 201 });
     } else if (data.solo) {
@@ -83,7 +83,7 @@ MLDA@EEE`,
 
       const savedSolo = await soloParticipant.save();
 
-      const soloEmail = data.solo.email
+      const soloEmail = data.solo.email;
       await sendConfirmationEmail(soloEmail, data.solo.name);
 
       return new Response(JSON.stringify(savedSolo), { status: 201 });
