@@ -23,7 +23,7 @@ const nextConfig = {
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' https://challenges.cloudflare.com/; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://full-glowworm-1.clerk.accounts.dev https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.clerk.com blob: data: https://www.googletagmanager.com/; font-src 'self'; object-src 'self' data:; base-uri 'self'; form-action 'self'; media-src 'self'; upgrade-insecure-requests; frame-ancestors 'none'; worker-src 'self' blob:; connect-src 'self' https://www.google-analytics.com https://full-glowworm-1.clerk.accounts.dev https://raw.githubusercontent.com/"
+            "value": "default-src 'self' https://challenges.cloudflare.com/; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://clerk.dlweek.com/ https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.clerk.com blob: data: https://www.googletagmanager.com/; font-src 'self'; object-src 'self' data:; base-uri 'self'; form-action 'self'; media-src 'self'; upgrade-insecure-requests; frame-ancestors 'none'; worker-src 'self' blob:; connect-src 'self' https://www.google-analytics.com https://clerk.dlweek.com/ https://raw.githubusercontent.com/"
           },
           {
             "key": "Access-Control-Allow-Origin",
