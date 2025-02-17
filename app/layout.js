@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from '@/components/Footer';
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Deep Learning Week",
@@ -9,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: 'Register | DLW',
     description: 'Deep Learning Week - MLDA @ NTU EEE',
-    images: 
+    images:
     {
       url: 'https://dlweek.com/og-image.png',
       width: 1200,
@@ -26,15 +27,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className="antialiased"
-      >
-        <Navbar />
-        {children}
-        <Footer />
-        <GoogleAnalytics gaId="G-82JFE3XWNX" />
-      </body>
-    </html>
+    <ClerkProvider afterSignOutUrl="/">
+      <html lang="en">
+        <body
+          className="antialiased"
+        >
+          <Navbar />
+          {children}
+          <Footer />
+          <GoogleAnalytics gaId="G-82JFE3XWNX" />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

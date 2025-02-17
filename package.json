@@ -9,14 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/elements": "^0.22.22",
+    "@clerk/nextjs": "^6.11.1",
     "@next/third-parties": "^15.1.6",
     "@studio-freight/lenis": "^1.0.42",
+    "@tensorflow/tfjs": "^4.22.0",
     "@vercel/analytics": "^1.4.1",
     "axios": "^1.7.9",
     "framer-motion": "^11.18.0",
     "mongoose": "^8.9.5",
     "next": "^15.1.6",
     "next-gtag": "^0.2.0",
+    "phaser": "^3.88.2",
+    "phaser3-rex-plugins": "^1.80.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0"

@@ -79,7 +79,7 @@ function Navbar() {
                     </div>
                     <NavMenu menuData={menuData} />
                     <div className='flex gap-7 items-center z-20'>
-                        {/* <div className='flex navMainItem'>Play</div> */}
+                        <Link href='/game' className='flex navMainItem'>Play</Link>
                         <Link href='/signup' className='flex navButton'>Sign Up</Link>
                     </div>
                 </div>
