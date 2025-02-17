@@ -30,7 +30,9 @@ Here are the event details you need to know:
 📍 Venue: LT 1A, NTU  
 ⏰ Time: 4:30 PM (Registration and Networking)
       
-Get ready for a transformative experience! During the event, you'll hear from industry experts, connect with fellow AI enthusiasts, and immerse yourself in the latest advancements in AI. You don't want to miss it!
+This year, our sponsors are bringing exclusive workshops and learning opportunities designed to help you sharpen your expertise, no matter your experience level. 
+
+No matter your background, this is the perfect time to build a tech portfolio that speaks volumes. Whether you're innovating in Finance, Healthcare, Education, Media, or Sustainability, Deep Learning Week is where we develop groundbreaking solutions to real world problems. 
       
 We'll be sharing information about event tracks and prizes soon, so stay tuned!
       
