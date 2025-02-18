@@ -99,7 +99,7 @@ export async function POST(request) {
 
       if (await checkIfRegistered(soloEmail)) {
         return new Response(
-          JSON.stringify({ error: `Registration failed: ${soloEmail} has already registered.` }),
+          JSON.stringify({ error: `${soloEmail} has already registered. Please contact @nitinnn17 to re-register.` }),
           { status: 400 }
         );
       }
