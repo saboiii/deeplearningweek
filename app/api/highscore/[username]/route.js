@@ -1,11 +1,9 @@
 import connectDB from '@/lib/db';
 import Player from "@/models/player";
-import { auth } from '@clerk/nextjs/server'
 
 export async function GET(req, context) {
   const { params } = await context;
   const { username } = await params;
-  await auth.protect()
 
   try {
     await connectDB();

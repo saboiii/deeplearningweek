@@ -1,9 +1,7 @@
 import connectDB from '@/lib/db';
 import Data from "@/models/data";
-import { auth } from '@clerk/nextjs/server'
 
 export async function POST(request) {
-  await auth.protect()
   try {
     const data = await request.json();
     const { playerData, username } = data;
