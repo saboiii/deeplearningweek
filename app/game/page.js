@@ -1,11 +1,13 @@
 'use client'
-import { SignOutButton, UserButton, UserProfile, useUser } from '@clerk/nextjs'
-import React, { useEffect, useState, memo } from 'react'
+import { SignOutButton, UserButton, useUser } from '@clerk/nextjs'
+import React, { useEffect, useState } from 'react'
 import { Protect } from '@clerk/nextjs'
 import { GoSignOut } from "react-icons/go";
 import { CiUser } from "react-icons/ci"
+import { AiOutlineHome } from "react-icons/ai";
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 const MemoizedGameComponent = dynamic(() => import('@/game/GameComponent'), { ssr: false });
 
@@ -22,10 +24,10 @@ function Game() {
       const activeElement = document.activeElement;
       const isInputOrUserProfileMenu =
         activeElement.tagName === "INPUT" ||
-        activeElement.closest('.userButtonPopoverCard'); // Check if inside user profile menu
+        activeElement.closest('.userButtonPopoverCard');
 
       if (isInputOrUserProfileMenu) {
-        return; // Don't block keys for input or user profile menu
+        return;
       }
 
       if (event.key === "Escape") {
@@ -71,7 +73,16 @@ function Game() {
   return (
     <Protect
       fallback={
-        <div className='flex items-center justify-center w-screen h-screen' />
+        <div className='flex items-center justify-center w-screen h-screen'>
+          <div className='lg:hidden flex flex-col text-xs gap-4 text-center px-16 w-full md:w-1/2 h-full items-center justify-center'>
+            <div>
+              You have been signed out.
+            </div>
+            <Link href='/' className='flex authButton uppercase text-[9px]'>
+              <AiOutlineHome className='mr-3' />
+            </Link>
+          </div>
+        </div>
       }
     >
       <div className='flex items-center justify-center'>
@@ -92,7 +103,7 @@ function Game() {
             <div className='flex flex-row items-center justify-between wfull'>
               <div className='flex authButton'>
                 <GoSignOut className='mr-3' />
-                <SignOutButton>
+                <SignOutButton redirectUrl="/">
                   <button className='uppercase'>Logout</button>
                 </SignOutButton>
               </div>
@@ -146,7 +157,7 @@ function Game() {
           </div>
           <div className='flex authButton'>
             <GoSignOut className='mr-3' />
-            <SignOutButton>
+            <SignOutButton redirectUrl="/">
               <button className='uppercase text-[9px]'>Logout</button>
             </SignOutButton>
           </div>
