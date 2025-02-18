@@ -1,7 +1,9 @@
 import connectDB from '@/lib/db';
 import Player from "@/models/player";
+import { auth } from '@clerk/nextjs/server'
 
 export async function GET(request) {
+  await auth.protect()
   try {
     await connectDB();
     const leaderboard = await Player.find()

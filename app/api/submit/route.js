@@ -20,37 +20,41 @@ export async function POST(request) {
         from: 'deeplearningweek@gmail.com',
         to: email,
         subject: 'Confirmation of Your Deep Learning Week Participation',
-        text: `Dear ${toName},
+        html: `
+          <p>Dear ${toName},</p>
+          <p>We are thrilled to welcome you to <b>Deep Learning Week 2025</b>!</p>
+          
+          <p><b>Here are the event details you need to know:</b></p>
+          <ul>
+            <li>📅 <b>Opening Ceremony:</b> 28th February</li>
+            <li>📍 <b>Venue:</b> LT 1A, NTU</li>
+            <li>⏰ <b>Time:</b> 4:30 PM (Registration and Networking)</li>
+          </ul>
       
-We are thrilled to welcome you to Deep Learning Week 2025!
+          <p>This year, our sponsors are bringing exclusive workshops and learning opportunities designed to help you sharpen your expertise, no matter your experience level.</p>
       
-Here are the event details you need to know:
+          <p>No matter your background, this is the perfect time to build a tech portfolio that speaks volumes. Whether you're innovating in <b>Finance, Healthcare, Education, Media, or Sustainability</b>, Deep Learning Week is where we develop groundbreaking solutions to real-world problems.</p>
       
-📅 Opening Ceremony: 28th February  
-📍 Venue: LT 1A, NTU  
-⏰ Time: 4:30 PM (Registration and Networking)
+          <p><b>We'll be sharing information about event tracks and prizes soon, so stay tuned!</b></p>
       
-This year, our sponsors are bringing exclusive workshops and learning opportunities designed to help you sharpen your expertise, no matter your experience level. 
-
-No matter your background, this is the perfect time to build a tech portfolio that speaks volumes. Whether you're innovating in Finance, Healthcare, Education, Media, or Sustainability, Deep Learning Week is where we develop groundbreaking solutions to real world problems. 
+          <p><b>Important:</b> Join our official Telegram channel for the latest updates and announcements: <a href="https://t.me/deeplearningweek2025">https://t.me/deeplearningweek2025</a></p>
       
-We'll be sharing information about event tracks and prizes soon, so stay tuned!
+          <p>If you have any questions or need assistance, don't hesitate to reach out. Our team is here to help! You can contact us via Telegram:</p>
+          <ul>
+            <li>@Abhiram_Kadaba</li>
+            <li>@nitinnn17</li>
+            <li>@ARJUN022</li>
+            <li>@Ninadd07</li>
+          </ul>
       
-Important: Join our official Telegram channel for the latest updates and announcements:  
-https://t.me/deeplearningweek2025
+          <p>We can't wait to see you at the event!</p>
       
-If you have any questions or need assistance, don't hesitate to reach out. Our team is here to help! You can contact us via Telegram:  
-  - @Abhiram_Kadaba  
-  - @nitinnn17  
-  - @ARJUN022  
-  - @Ninadd07
-      
-We can't wait to see you at the event!
-      
-Best regards,  
-The Deep Learning Week Team  
-MLDA@EEE`,
+          <p>Best regards,<br>
+          <b>The Deep Learning Week Team</b><br>
+          <i>MLDA@EEE</i></p>
+        `,
       };
+
 
       try {
         await transporter.sendMail(mailOptions);
@@ -60,8 +64,22 @@ MLDA@EEE`,
       }
     };
 
+    const checkIfRegistered = async (email) => {
+      const existingSolo = await Participant.findOne({ 'solo.email': email });
+      const existingTeam = await Participant.findOne({ 'members.email': email });
+      return existingSolo || existingTeam;
+    };
+
     if (data.team && data.team.teamName && data.team.members && Array.isArray(data.team.members)) {
       const membersArray = Object.values(data.team.members);
+      for (const member of membersArray) {
+        if (await checkIfRegistered(member.email)) {
+          return new Response(
+            JSON.stringify({ error: `Registration failed: ${member.email} has already registered.` }),
+            { status: 400 }
+          );
+        }
+      }
 
       const teamParticipant = new Participant({
         teamName: data.team.teamName,
@@ -70,23 +88,32 @@ MLDA@EEE`,
 
       const savedTeam = await teamParticipant.save();
 
-      // Send confirmation email to each member of the team
       for (const member of membersArray) {
         await sendConfirmationEmail(member.email, member.name);
       }
 
       return new Response(JSON.stringify(savedTeam), { status: 201 });
+
     } else if (data.solo) {
+      const soloEmail = data.solo.email;
+
+      if (await checkIfRegistered(soloEmail)) {
+        return new Response(
+          JSON.stringify({ error: `Registration failed: ${soloEmail} has already registered.` }),
+          { status: 400 }
+        );
+      }
+
       const soloParticipant = new Participant({
         solo: data.solo,
       });
 
       const savedSolo = await soloParticipant.save();
 
-      const soloEmail = data.solo.email;
       await sendConfirmationEmail(soloEmail, data.solo.name);
 
       return new Response(JSON.stringify(savedSolo), { status: 201 });
+
     } else {
       return new Response(
         JSON.stringify({ error: 'Invalid data structure.' }),
