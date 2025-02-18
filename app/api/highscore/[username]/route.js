@@ -1,17 +1,9 @@
 import connectDB from '@/lib/db';
 import Player from "@/models/player";
-import { auth } from '@clerk/nextjs/server';
 
 export async function GET(req, context) {
   const { params } = await context;
   const { username } = await params;
-  const { userId } = auth();
-
-  if (!userId) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-    });
-  }
 
   try {
     await connectDB();
