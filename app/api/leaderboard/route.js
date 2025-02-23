@@ -21,13 +21,6 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const { userId } = auth();
-
-  if (!userId) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-    });
-  }
 
   try {
     const data = await request.json();
