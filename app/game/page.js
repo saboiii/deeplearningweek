@@ -8,11 +8,13 @@ import { AiOutlineHome } from "react-icons/ai";
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const MemoizedGameComponent = dynamic(() => import('@/game/GameComponent'), { ssr: false });
 
 function Game() {
   const { user } = useUser();
+  const router = useRouter();
   const [pause, setPause] = useState(false);
   const [leaderboard, setLeaderboard] = useState([]);
   const [fetching, setFetching] = useState(false);
@@ -157,7 +159,7 @@ function Game() {
           </div>
           <div className='flex authButton'>
             <GoSignOut className='mr-3' />
-            <SignOutButton redirectUrl="/">
+            <SignOutButton signOutCallback={() => router.push("/")}>
               <button className='uppercase text-[9px]'>Logout</button>
             </SignOutButton>
           </div>
