@@ -16,34 +16,34 @@ import Link from 'next/link'
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const menuData = {
-        // "About Us": {
-        //     title: "About Us",
-        //     description: "Learn about our vision and the passionate team organizing the event.",
-        //     caption: "EXPLORE",
-        //     items: [
-        //         { icon: <IoMdInformationCircleOutline  size={20} />, label: "Our Event", link:'/about'},
-        //         { icon: <PiFlagBanner size={20} />, label: "Highlights", link:'/about' },
-        //         { icon: <BsPeople size={20} />, label: "Our Team", link:'/about'},
-        //         { icon: <PiTarget size={20} />, label: "Our Purpose", link:'/about'},
-        //         { icon: <IoTrophyOutline size={20} />, label: "Our Achievements", link:'/about' },
-        //     ]
-
-        // },
-        "Agenda": {
-            title: "Agenda",
-            description: "Check out the schedule of workshops, talks, and networking sessions.",
-            caption: "Schedules",
+        "About Us": {
+            title: "About Us",
+            description: "Learn about our vision and the passionate team organizing the event.",
+            caption: "EXPLORE",
             items: [
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda?day=1' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda?day=2' },
-                { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda?day=4' },
-                // { icon: <IoIosCog size={20} />, label: "Workshop I" },
-                // { icon: <IoIosCog size={20} />, label: "Workshop II" },
-                // { icon: <IoIosCog size={20} />, label: "Workshop III" },
-                // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
-            ],
-            link: '/agenda'
+                { icon: <IoMdInformationCircleOutline  size={20} />, label: "Our Event", link:'/about'},
+                { icon: <PiFlagBanner size={20} />, label: "Highlights", link:'/about' },
+                { icon: <BsPeople size={20} />, label: "Our Team", link:'/about'},
+                { icon: <PiTarget size={20} />, label: "Our Purpose", link:'/about'},
+                { icon: <IoTrophyOutline size={20} />, label: "Our Achievements", link:'/about' },
+            ]
+
         },
+        // "Agenda": {
+        //     title: "Agenda",
+        //     description: "Check out the schedule of workshops, talks, and networking sessions.",
+        //     caption: "Schedules",
+        //     items: [
+        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda?day=1' },
+        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda?day=2' },
+        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda?day=4' },
+        //         // { icon: <IoIosCog size={20} />, label: "Workshop I" },
+        //         // { icon: <IoIosCog size={20} />, label: "Workshop II" },
+        //         // { icon: <IoIosCog size={20} />, label: "Workshop III" },
+        //         // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
+        //     ],
+        //     link: '/agenda'
+        // },
         // "Speakers": {
         //     title: "Speakers",
         //     description: "Meet the amazing speakers who will be sharing their knowledge with us.",
@@ -108,8 +108,10 @@ function Navbar() {
                     <div className='menuDivider' />
                     {/* <Link href='/about' className='flex'>About Us</Link>
                     <div className='menuDivider'/> */}
-                    <Link href='/agenda' className='flex' onClick={handleLinkClick}>Agenda</Link>
-                    <div className='menuDivider' />
+                    <Link href='/recruitment' className='flex'>Recruitment</Link>
+                    <div className='menuDivider'/>
+                    {/* <Link href='/agenda' className='flex' onClick={handleLinkClick}>Agenda</Link>
+                    <div className='menuDivider' /> */}
                     {/* <Link href='/' className='flex'>Speakers</Link>
                     <div className='menuDivider'/> */}
                     <Link href='/faqs' className='flex' onClick={handleLinkClick}>FAQs</Link>

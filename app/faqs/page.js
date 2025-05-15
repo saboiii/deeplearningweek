@@ -4,7 +4,9 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 
 function FAQs() {
     const [activeIndex, setActiveIndex] = useState(null);
-    const faqs = [
+    const version = process.env.NEXT_PUBLIC_VERSION;
+
+    const faqsV1 = [
         {
             question: 'Who can participate?',
             answer: 'The hackathon is open to university students across Singapore, including undergraduate, postgraduate, and PhD students from NTU, NUS, SIT, SUTD, SMU, and SUSS. Participants of all skill levels in AI and machine learning are welcome. However, please note that some tracks and prizes will be exclusively reserved for undergraduate students.',
@@ -58,7 +60,84 @@ function FAQs() {
             answer: 'Yes, security measures will be in place to ensure the safety of all overnight participants, including restricted access to the venue for registered individuals only and on-site monitoring throughout the event.',
         },
     ];
-    
+
+    const descV1 = "Find answers to frequently asked questions about the event, including logistics, participation guidelines, and more."
+
+    const descV2 = "Find answers to frequently asked questions about the DLW 2026 committee recruitment."
+
+    const faqsV2 = [
+        {
+            question: 'Who can register for the recruitment?',
+            answer: 'All undergraduate students are welcome to apply—regardless of faculty or prior experience.',
+        },
+        {
+            question: 'Can I apply for more than one position?',
+            answer: 'No, you can only apply for one position.',
+        },
+        {
+            question: 'Is the recruitment open to first-year students?',
+            answer: 'Absolutely—many of our most impactful members have joined in their first year.',
+        },
+        {
+            question: 'Will I get to interact with sponsors and external partners?',
+            answer: 'There is a good chance — EXCO and Maincomm members play a key role in high-level communications and planning. We are also planning to have a few programs where you can interact with sponsors and external partners, but this is not yet confirmed.',
+        },
+        {
+            question: 'Is this a paid position?',
+            answer: 'Yes, depending on the hours you put in on the days of the event, you will be compensated for your time through WSS. The amount will be discussed and finalised after DLW.',
+        },
+        {
+            question: 'How do I apply?',
+            answer: 'You can apply through the link provided in the recruitment post on our social media channels. The application form will require you to provide your personal details, academic background, and any relevant experience or skills.',
+        },
+        {
+            question: 'What is the recruitment process like?',
+            answer: 
+            (
+                <span className="inline">
+                    The process consists of two phases: a short take-home assignment (role-specific), followed by a behavioural interview with our core team. Find out more information on our{' '}
+                    <a
+                        href="/recruitment"
+                        className="text-[#708aa1] inline align-baseline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        recruitment page.
+                    </a>
+                </span>
+            ),
+        },
+        {
+            question: 'When do applications close?',
+            answer: 'Applications will close on 15th July 2025, 2359. Late applications will not be considered.',
+        },
+        {
+            question: 'Who can I reach out to with questions?',
+            answer: (
+                <span className="inline">
+                    Feel free to contact us through{' '}
+                    <a
+                        href="mailto:deeplearningweek@gmail.com"
+                        className="text-[#708aa1] inline align-baseline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        email
+                    </a>
+                    {' '}or by DMing us on{' '}
+                    <a
+                        href="https://instagram.com/deeplearningweek"
+                        className="text-[#708aa1] inline align-baseline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        our Instagram.
+                    </a>
+                </span>
+            ),
+        },
+    ];
+    const faqs = version === "1.0.0" ? faqsV1 : faqsV2;
 
     function handleToggle(index) {
         setActiveIndex(index === activeIndex ? null : index);
@@ -69,7 +148,9 @@ function FAQs() {
             <div className='flex gap-4 flex-col lg:flex-row h-[60vh] w-[70vw] mt-8'>
                 <div className='flex flex-col justify-center w-full h-full mr-12'>
                     <h2 className='text-left animate-gradient text-[34px] md:text-[48px] w-full mb-6'>Any questions&#63; We got you.</h2>
-                    <p className='text-sm w-full lg:w-5/6 text-pretty leading-6'>Find answers to frequently asked questions about the event, including logistics, participation guidelines, and more.</p>
+                    <p className='text-sm w-full lg:w-5/6 text-pretty leading-6'>
+                    {version === "1.0.0" ? descV1 : descV2}
+                    </p>
                 </div>
                 <div className='flex w-full h-full items-center justify-center'>
                     <div className='relative grid grid-cols-1 justify-normal divide-y divide-[#d1e1f3] overflow-scroll w-full h-[75%]'>

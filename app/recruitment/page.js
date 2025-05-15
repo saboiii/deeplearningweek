@@ -1,0 +1,89 @@
+import React from 'react'
+import { FiExternalLink } from "react-icons/fi";
+
+function Recruitment() {
+    return (
+        <div className='flex flex-col justify-center w-screen h-screen'>
+            <div className='flex flex-col items-center justify-center h-[11vh] w-full  border-[#2a2b3c]/80 border-b'>
+
+            </div>
+            <div className='flex flex-row justify-center h-[89vh] w-full'>
+                {/* <div className='hidden lg:flex flex-col items-center justify-center w-[30vw] h-full border-[#2a2b3c]/80 border-r'>
+
+                </div> */}
+                <div className='flex font-light flex-col prose px-20 text-justify tracking-tight lg:px-16 py-12 w-full text-sm lg:text-base lg:w-[70vw] lg:border-[#2a2b3c]/80 lg:border-l lg:border-r h-full overflow-y-auto'>
+                    <h2 className='w-full text-2xl md:text-[40px] leading-none mb-2'>Recruitment 2026</h2>
+                    <div className="flex font-normal text-[#b3b5cb] justify-center text-center text-sm text-pretty mb-12 items-center">
+                        <span>Posted on 15 May, 2025</span>
+                        <span className="mx-2 text-lg align-middle">•</span>
+                        <span>DLW Exco</span>
+                    </div>
+
+                    <section className="flex flex-col mb-12 w-full">
+                        <p className='flex'>
+                            Each year, Deep Learning Week brings together some of the most creative, driven, and curious minds across our university to design a celebration of learning and innovation. In 2026, we’re continuing that legacy — and we’re looking for the next group of student leaders to make it happen.
+                        </p>
+                        <p className='flex mt-4'>
+                            We are excited to announce that applications are now open for the Deep Learning Week 2026 Exco and Maincomm.
+                        </p>
+                    </section>
+
+                    <section className="flex mb-12 w-full flex-col">
+                        <h2 className="flex text-lg lg:text-2xl text-white mb-4 w-full font-medium">Open Roles</h2>
+                        <p className='flex'>We are currently recruiting for the following key positions:</p>
+                        <ul className="list-disc ml-8 my-4 space-y-2 font-normal text-left">
+                            <li className="pl-2">Honorary General Secretary</li>
+                            <li className="pl-2">Vice President of Academics</li>
+                            <li className="pl-2">Vice President of Operations</li>
+                            <li className="pl-2">Vice President of Design &amp; Innovation</li>
+                            <li className="pl-2">Co-Vice President of Corporate Relations (Sponsorship)</li>
+                            <li className="pl-2">Co-Vice President of Corporate Relations (Affiliations)</li>
+                        </ul>
+                        <p className="mt-2 flex">
+                            These roles form the backbone of DLW's success — overseeing everything from event logistics and sponsor engagement, to academic content and design strategy. You don’t need to have planned a large event before, but we do look for commitment, clarity of thought, and an ability to work calmly under pressure. In other words: people who care, and care well.
+                        </p>
+                    </section>
+
+                    <section className="flex mb-12 w-full flex-col">
+                        <h2 className="flex text-lg lg:text-2xl text-white mb-4 w-full font-medium">What is Deep Learning Week?</h2>
+                        <p className='flex'>
+                            At the heart of DLW is our flagship hackathon — an interdisciplinary challenge where participants across fields collaborate, build, and present bold new ideas. But DLW is more than a hackathon. It's a platform. A space where creativity and critical thinking are celebrated equally, and where academic excellence meets real-world impact.
+                        </p>
+                        <p className='flex mt-4'>
+                            DLW committee members enjoy unique behind-the-scenes access to representatives from our partner organisations. These are conversations happen not just at a lecture theatre or a public event, but in our rooms, over project pitches, and around plans that you’ll help shape.
+                        </p>
+                    </section>
+
+                    <section className="flex mb-12 w-full flex-col">
+                        <h2 className="flex text-lg lg:text-2xl text-white mb-4 w-full font-medium">Who Should Apply?</h2>
+                        <p className='flex'>
+                            This is a leadership cohort designed for students who are thoughtful, deliberate, and genuinely excited about building something meaningful together. We’re looking for students who think deeply, work collaboratively, and take pride in doing things well. You don’t need to have all the answers—but you should be curious, committed, and ready to bring your perspective to the table. In joining us, you’ll not only contribute to one of the most anticipated student-led events of the year—you’ll help shape its voice, values, and future.
+                        </p>
+                    </section>
+
+                    <section className="flex mb-12 w-full flex-col">
+                        <h2 className="flex text-lg lg:text-2xl text-white mb-4 w-full font-medium">Ready to Join?</h2>
+                        <p>
+                            Applications will close on <strong>15 June 2025</strong>, and interviews will be conducted shortly thereafter. We encourage you to apply early and to reach out with any questions you might have about the roles or the process.
+                        </p>
+                        <p className='mt-12 text-base text-white font-medium'>
+                            You can apply{' '}
+                            <a
+                                className="group text-[#91adc5] inline justify-center items-center duration-200 ease-in-out transition hover:text-white"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://forms.cloud.microsoft/r/m3CbcwdAhC"
+                            >
+                                here.
+                                <FiExternalLink size={16} className="inline mb-1 text-inherit ml-1 transition-colors duration-200 ease-in-out group-hover:text-inherit" />
+
+                            </a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Recruitment

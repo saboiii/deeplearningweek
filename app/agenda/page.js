@@ -2,9 +2,14 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Schedule from '@/components/Schedule';
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, notFound } from 'next/navigation'
 
 function Agenda() {
+    const version = process.env.NEXT_PUBLIC_VERSION;
+    if (version !== "1.0.0") {
+         notFound();
+    }
+
     const day1Ref = useRef(null);
     const day2Ref = useRef(null);
     const day4Ref = useRef(null);
@@ -90,7 +95,7 @@ function Agenda() {
                 <Schedule styles='h-[78vh] lg:h-[50vh]' date={"28 February, 2025"} schedule={day1schedule} title={Object.keys(days)[0]} description={Object.values(days)[0]} divs={4} />
             </div>
             <div ref={day2Ref} className='w-full'>
-                <Schedule  styles='h-[160vh] lg:h-[140vh]' date={"1 March, 2025"} schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
+                <Schedule styles='h-[160vh] lg:h-[140vh]' date={"1 March, 2025"} schedule={day2schedule} title={Object.keys(days)[1]} description={Object.values(days)[1]} divs={10} />
             </div>
             <div ref={day4Ref} className='w-full'>
                 <Schedule styles='h-[62vh] lg:h-[40vh]' date={"3 March, 2025"} schedule={day4schedule} title={Object.keys(days)[2]} description={Object.values(days)[2]} divs={3} />
