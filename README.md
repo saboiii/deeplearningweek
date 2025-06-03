@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DLWEEK | HACKATHON Portal
 
-## Getting Started
+Official website for **Deep Learning Week, NTU**. A premier, nationwide event open to students from Singapore universities.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js 15**
+- **React 19**
+- **Tailwind CSS**
+- **MongoDB (via Mongoose)**
+- **AWS Lambda and S3**
+- **Framer Motion**
+- **Clerk**
+- **TensorFlow.js**
+- **Cloudinary**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Hackathon Info & Schedule:**  
+  The portal provides a comprehensive, dynamically rendered agenda for Deep Learning Week, allowing users to view detailed schedules for each day. Smooth scrolling and anchor navigation are implemented for an intuitive user experience.
 
-To learn more about Next.js, take a look at the following resources:
+- **FAQ Section:**  
+  The FAQ module supports both event and recruitment queries, with content that adapts based on the current version of the event. FAQs are rendered as interactive, collapsible accordions, ensuring clarity and accessibility for all users.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Recruitment Portal:**  
+  A dedicated recruitment section lists all open executive and main committee roles, with detailed descriptions and requirements. The portal integrates application forms, deadlines, and process explanations, and uses Tailwind CSS for a clean, readable layout. All application links are validated and tracked.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **AI-Powered Game:**  
+  The site features an interactive browser game where users compete against a TensorFlow.js-powered AI adversary. The AI model is trained to predict and counter player moves, providing a challenging experience. The game includes a persistent leaderboard, user authentication via Clerk, and real-time score updates. All game logic and AI inference run client-side for performance and security. AWS Lambda enables the backend to process and save player data via a Node script. This data is used for reinforcement learning, allowing the TensorFlow.js model to improve over time based on real user interactions. Player data is stored as CSV files in AWS S3, providing scalable and secure storage for training datasets and analytics. This integration ensures that the AI opponent can be continuously retrained and updated with real gameplay data, enhancing the challenge and adaptability of the game.
 
-## Deploy on Vercel
+- **Sponsors Showcase:**  
+  Sponsors and partners are highlighted with animated banners and logos, implemented using Framer Motion for smooth transitions. The showcase is fully responsive and adapts to different screen sizes, ensuring maximum visibility for all sponsors.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Authentication:**  
+  User authentication and session management are handled by Clerk, providing secure sign-up, login, and protected routes. JWT-based sessions ensure that sensitive pages (such as the game leaderboard and application forms) are only accessible to authenticated users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Responsive Design:**  
+  The entire portal is built with a mobile-first approach using Tailwind CSS. All components are tested for accessibility and usability across devices, with adaptive layouts and scalable typography.
+
+- **Email Confirmation:**  
+  Upon registration or application submission, users receive automated confirmation emails. The backend integrates with EmailJS or Nodemailer to handle transactional email delivery.
+
+- **Custom Components:**  
+  The codebase is organized into modular, reusable React components for layout, navigation, forms, and UI elements. This structure promotes maintainability, scalability, and rapid development of new features.
+
+---
+
+## Authors
+
+- [@saboiii](https://www.github.com/saboiii)
