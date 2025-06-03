@@ -159,7 +159,7 @@ function Game() {
           </div>
           <div className='flex authButton'>
             <GoSignOut className='mr-3' />
-            <SignOutButton signOutCallback={() => router.push("/")}>
+            <SignOutButton redirectUrl="/">
               <button className='uppercase text-[9px]'>Logout</button>
             </SignOutButton>
           </div>
