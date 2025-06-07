@@ -229,3 +229,13 @@
 .authResendCodeDisabled{
   @apply flex text-xs uppercase tracking-wide text-[#c8c1ee]/30
 }
+
+.benefitBoxA{
+  @apply rounded-3xl  bg-gradient-to-br from-[#454eef]/40 to-[#7245ef]/20 p-8 items-center justify-center;
+  box-shadow: 0 -2px 30px rgba(11, 48, 151, 0.5)
+}
+
+.benefitBoxB{
+  @apply rounded-3xl bg-gradient-to-br from-[#454eef]/80 to-[#7245ef]/80 p-8 items-center justify-center;
+  box-shadow: 0 -2px 30px rgba(50, 91, 206, 0.5)
+}

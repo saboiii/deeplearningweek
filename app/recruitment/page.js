@@ -11,7 +11,7 @@ function Recruitment() {
                 {/* <div className='hidden lg:flex flex-col items-center justify-center w-[30vw] h-full border-[#2a2b3c]/80 border-r'>
 
                 </div> */}
-                <div className='flex font-light flex-col prose px-20 text-justify tracking-tight lg:px-16 py-12 w-full text-sm lg:text-base lg:w-[70vw] lg:border-[#2a2b3c]/80 lg:border-l lg:border-r h-full overflow-y-auto'>
+                <div className='flex font-light flex-col prose px-8 lg:overscroll-none text-pretty tracking-tight lg:px-16 py-12 w-full text-sm lg:text-base lg:w-[70vw] lg:border-[#2a2b3c]/80 lg:border-l lg:border-r h-full overflow-y-auto'>
                     <h2 className='w-full text-2xl md:text-[40px] leading-none mb-2'>Recruitment 2026</h2>
                     <div className="flex font-normal text-[#b3b5cb] justify-center text-center text-sm text-pretty mb-12 items-center">
                         <span>Posted on 15 May, 2025</span>
@@ -23,9 +23,37 @@ function Recruitment() {
                         <p className='flex'>
                             Each year, Deep Learning Week brings together some of the most creative, driven, and curious minds across our university to design a celebration of learning and innovation. In 2026, we’re continuing that legacy — and we’re looking for the next group of student leaders to make it happen.
                         </p>
-                        <p className='flex mt-4'>
+                        <p className='flex mt-4 font-medium'>
                             We are excited to announce that applications are now open for the Deep Learning Week 2026 Exco and Maincomm.
                         </p>
+                    </section>
+
+                    <section className="grid grid-cols-1 lg:grid-cols-3 mb-12 w-full gap-8 flex-col">
+                        <div className='flex flex-col w-full benefitBoxA'>
+                            <h2 className="flex text-xl text-white mb-4 font-medium">
+                                Industry Mentorship
+                            </h2>
+                            <p className='flex font-normal text-center text-xs'>
+                                Work closely with industry leaders to gain invaluable career insights and guidance while contributing to DLW's planning and execution.
+                            </p>
+                        </div>
+                        <div className='flex flex-col w-full benefitBoxB' >
+                            <h2 className="flex text-xl text-white mb-4 font-medium">
+                                Get Paid! (SG$320+)
+                            </h2>
+                            <p className='flex font-normal text-center text-xs'>
+                                Under WSS Scheme, if eligible, you will receive a stipend of SG$320+ for your contributions to the committee.
+                            </p>
+                        </div>
+                        <div className='flex flex-col w-full benefitBoxA text-xs'>
+                            <h2 className="flex text-xl text-white mb-4 font-medium">
+                                Growth at DLWEEK
+                            </h2>
+                            <p className='flex font-normal text-center text-xs'>
+                               You'll have the opportunity to grow within the team to achieve higher leadership positions regardless of your course of study.
+                            </p>
+                        </div>
+
                     </section>
 
                     <section className="flex mb-12 w-full flex-col">
