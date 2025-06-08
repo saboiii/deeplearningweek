@@ -3,7 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 function Recruitment() {
     return (
-        <div className='flex flex-col justify-center w-screen h-screen'>
+        <div className='flex flex-col justify-center w-screen min-h-screen lg:h-screen'>
             <div className='flex flex-col items-center justify-center h-[11vh] w-full  border-[#2a2b3c]/80 border-b'>
 
             </div>
@@ -50,7 +50,7 @@ function Recruitment() {
                                 Growth at DLWEEK
                             </h2>
                             <p className='flex font-normal text-center text-xs'>
-                               You'll have the opportunity to grow within the team to achieve higher leadership positions regardless of your course of study.
+                                You'll have the opportunity to grow within the team to achieve higher leadership positions regardless of your course of study.
                             </p>
                         </div>
 
@@ -67,6 +67,19 @@ function Recruitment() {
                             <li className="pl-2">Co-Vice President of Corporate Relations (Sponsorship)</li>
                             <li className="pl-2">Co-Vice President of Corporate Relations (Affiliations)</li>
                         </ul>
+                        <p className='bg-[#0f121a]/70 backdrop-blur-sm rounded-lg border border-[#2a2b3c]/80 py-4 px-8 mb-4 items-center gap-1 flex text-base text-white font-medium'>
+                            More info about roles{' '}
+                            <a
+                                className="group text-[#91adc5] flex justify-center items-center duration-200 ease-in-out transition hover:text-white"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://tinyurl.com/dlw2026roles"
+                            >
+                                here.
+                                <FiExternalLink size={16} className="flex text-inherit ml-1 transition-colors duration-200 ease-in-out group-hover:text-inherit" />
+
+                            </a>
+                        </p>
                         <p className="mt-2 flex">
                             These roles form the backbone of DLW's success — overseeing everything from event logistics and sponsor engagement, to academic content and design strategy. You don’t need to have planned a large event before, but we do look for commitment, clarity of thought, and an ability to work calmly under pressure. In other words: people who care, and care well.
                         </p>
@@ -94,16 +107,16 @@ function Recruitment() {
                         <p>
                             Applications will close on <strong>15 June 2025</strong>, and interviews will be conducted shortly thereafter. We encourage you to apply early and to reach out with any questions you might have about the roles or the process.
                         </p>
-                        <p className='mt-12 text-base text-white font-medium'>
+                        <p className='bg-[#0f121a]/70 backdrop-blur-sm rounded-lg border border-[#2a2b3c]/80 py-4 px-8 mt-8 items-center gap-1 flex text-base text-white font-medium'>
                             You can apply{' '}
                             <a
-                                className="group text-[#91adc5] inline justify-center items-center duration-200 ease-in-out transition hover:text-white"
+                                className="group text-[#91adc5] flex justify-center items-center duration-200 ease-in-out transition hover:text-white"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://forms.cloud.microsoft/r/m3CbcwdAhC"
                             >
                                 here.
-                                <FiExternalLink size={16} className="inline mb-1 text-inherit ml-1 transition-colors duration-200 ease-in-out group-hover:text-inherit" />
+                                <FiExternalLink size={16} className="flex text-inherit ml-1 transition-colors duration-200 ease-in-out group-hover:text-inherit" />
 
                             </a>
                         </p>
