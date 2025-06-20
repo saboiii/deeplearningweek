@@ -39,10 +39,10 @@ function Recruitment() {
                         </div>
                         <div className='flex flex-col w-full benefitBoxB' >
                             <h2 className="flex text-xl text-white mb-4 font-medium">
-                                Get Paid! (SG$320+)
+                                Get Paid!
                             </h2>
                             <p className='flex font-normal text-center text-xs'>
-                                Under WSS Scheme, if eligible, you will receive a stipend of SG$320+ for your contributions to the committee.
+                                Under WSS Scheme, if eligible, you will be paid for your contributions to the committee. The exact amount is subject to annual review by the university.
                             </p>
                         </div>
                         <div className='flex flex-col w-full benefitBoxA text-xs'>
