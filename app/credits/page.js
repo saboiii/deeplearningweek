@@ -1,4 +1,25 @@
-import React from 'react'
+export const metadata = {
+    title: "Credits | Deep Learning Week",
+    description: "Visit our Credits page to learn more about the contributors and resources behind the Deep Learning Week event.",
+    openGraph: {
+        title: "Credits | Deep Learning Week",
+        description:
+            "Visit our Credits page to learn more about the contributors and resources behind the Deep Learning Week event.",
+        url: "https://dlweek.com",
+        siteName: "Deep Learning Week",
+        images: [
+            {
+                url: "/images/og-image.png",
+                width: 800,
+                height: 800,
+                alt: "Deep Learning Week Photo",
+            },
+        ],
+        locale: "en_SG",
+        type: "website",
+    },
+};
+
 
 function Credits() {
     return (

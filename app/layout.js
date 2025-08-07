@@ -5,22 +5,24 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
-  title: "Deep Learning Week",
-  description: "Coming soon.",
+  title: "Deep Learning Week | Home",
+  description: "Join us for the Deep Learning Week, a week-long event focused on the latest advancements in deep learning and AI.",
   openGraph: {
-    title: 'Register | DLW',
-    description: 'Deep Learning Week - MLDA @ NTU EEE',
-    images:
-    {
-      url: 'https://dlweek.com/og-image.png',
-      width: 1200,
-      height: 630,
-      alt: 'DLW Promo Image',
-    },
-    url: 'https://dlweek.com',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'dlweek',
+    title: "Deep Learning Week | Home",
+    description:
+      "Join us for the Deep Learning Week, a week-long event focused on the latest advancements in deep learning and AI.",
+    url: "https://dlweek.com",
+    siteName: "Deep Learning Week",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 800,
+        height: 800,
+        alt: "Deep Learning Week Photo",
+      },
+    ],
+    locale: "en_SG",
+    type: "website",
   },
 };
 

@@ -1,4 +1,24 @@
-import React from 'react'
+export const metadata = {
+    title: "Privacy Policy | Deep Learning Week",
+    description: "Learn about our privacy practices and how we handle your data during the Deep Learning Week event.",
+    openGraph: {
+        title: "Privacy Policy | Deep Learning Week",
+        description:
+            "Learn about our privacy practices and how we handle your data during the Deep Learning Week event.",
+        url: "https://dlweek.com",
+        siteName: "Deep Learning Week",
+        images: [
+            {
+                url: "/images/og-image.png",
+                width: 800,
+                height: 800,
+                alt: "Deep Learning Week Photo",
+            },
+        ],
+        locale: "en_SG",
+        type: "website",
+    },
+};
 
 function PrivacyPolicy() {
     return (
