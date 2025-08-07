@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@clerk/elements": "^0.22.22",
-    "@clerk/nextjs": "^6.20.2",
+    "@clerk/nextjs": "^6.6.0",
     "@next/third-parties": "^15.1.6",
     "@studio-freight/lenis": "^1.0.42",
     "@tensorflow/tfjs": "^4.22.0",
@@ -26,9 +26,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0"
-  },
-  "resolutions": {
-    "@clerk/shared": "3.9.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
