@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/elements": "^0.22.22",
-    "@clerk/nextjs": "^6.6.0",
+    "@clerk/elements": "^0.23.54",
+    "@clerk/nextjs": "^6.29.0",
     "@next/third-parties": "^15.1.6",
     "@studio-freight/lenis": "^1.0.42",
     "@tensorflow/tfjs": "^4.22.0",
