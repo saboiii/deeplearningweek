@@ -245,7 +245,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                         <label className='mr-2 text-sm'>Course/Year:</label>
                         <input type='text' onChange={(e) => setCourse(e.target.value)} placeholder='Course/Year' name="course" value={course} className='flex w-24 text-sm placeholderIndicator outline-none font-normal tracking-tight z-30 bg-transparent' />
                     </div> */}
-                    <div className='flex flex-row lg:h-10 items-center text-[#8889a5]'>
+                    <div className='flex flex-row lg:h-10 items-center text-white'>
                         <label className='mr-2 text-sm'>T-Shirt Size:</label>
                         <select onChange={(e) => setSize(e.target.value)} value={size} className='flex outline-none text-sm font-normal tracking-tight z-30 bg-transparent'>
                             <option value="XS">XS</option>
@@ -255,7 +255,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                             <option value="XL">XL</option>
                         </select>
                     </div>
-                    <div className='flex flex-row lg:h-10 items-center text-[#8889a5]'>
+                    <div className='flex flex-row lg:h-10 items-center text-white'>
                         <label className='mr-2 text-sm'>Gender:</label>
                         <select onChange={(e) => setGender(e.target.value)} value={gender} className='flex outline-none text-sm font-normal tracking-tight z-30 bg-transparent'>
                             <option value="he">Male</option>
