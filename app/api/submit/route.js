@@ -121,14 +121,19 @@ export async function POST(request) {
         const savedTeam = await teamParticipant.save();
 
 
+        // Send all confirmation emails in parallel to avoid timeout
+        const emailPromises = [];
         for (const member of membersArray) {
-          // Always send to regular email
-          await sendConfirmationEmail(member.email, member.name);
-          // If NTU email exists and is different, send to NTU email as well
+          emailPromises.push(sendConfirmationEmail(member.email, member.name));
           if (member.ntuEmail && member.ntuEmail !== member.email) {
-            await sendConfirmationEmail(member.ntuEmail, member.name);
+            emailPromises.push(sendConfirmationEmail(member.ntuEmail, member.name));
           }
         }
+        Promise.all(emailPromises).then(() => {
+          console.log('All confirmation emails sent.');
+        }).catch((err) => {
+          console.error('Error sending some confirmation emails:', err);
+        });
 
         return new Response(JSON.stringify(savedTeam), { status: 201 });
 
@@ -156,12 +161,16 @@ export async function POST(request) {
         const savedSolo = await soloParticipant.save();
 
 
-        // Always send to regular email
-        await sendConfirmationEmail(soloEmail, data.solo.name);
-        // If NTU email exists and is different, send to NTU email as well
+        // Send solo confirmation emails in parallel to avoid timeout
+        const soloEmailPromises = [sendConfirmationEmail(soloEmail, data.solo.name)];
         if (data.solo.ntuEmail && data.solo.ntuEmail !== soloEmail) {
-          await sendConfirmationEmail(data.solo.ntuEmail, data.solo.name);
+          soloEmailPromises.push(sendConfirmationEmail(data.solo.ntuEmail, data.solo.name));
         }
+        Promise.all(soloEmailPromises).then(() => {
+          console.log('Solo confirmation emails sent.');
+        }).catch((err) => {
+          console.error('Error sending solo confirmation emails:', err);
+        });
 
         return new Response(JSON.stringify(savedSolo), { status: 201 });
 
