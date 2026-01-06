@@ -9,6 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 import { motion, useAnimation } from 'framer-motion';
 import { useRouter } from 'next/navigation'
 import Lenis from '@studio-freight/lenis';
+import Link from 'next/link';
 
 function TeamMembers({ exitFunction }) {
     const router = useRouter()
@@ -24,10 +25,31 @@ function TeamMembers({ exitFunction }) {
     const [errorText, setErrorText] = useState("");
     const [submissionMode, setSubmissionMode] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const memberCardRef = useRef([]);
     const mainRef = useRef(null);
     const controls = useAnimation();
+
+    useEffect(() => {
+        const savedTeamName = localStorage.getItem('team_teamName');
+        if (savedTeamName) {
+            setTeamName(savedTeamName);
+        }
+        const savedMembers = localStorage.getItem('team_members');
+        if (savedMembers) {
+            try {
+                const parsed = JSON.parse(savedMembers);
+                setMembers(parsed);
+            } catch (e) {
+                // ignore
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('team_teamName', teamName);
+    }, [teamName]);
 
     useEffect(() => {
         setCanAddMembers(members.length < 5);
@@ -35,18 +57,15 @@ function TeamMembers({ exitFunction }) {
 
     const handleSubmit = async () => {
         const allMemberData = {};
-    
+
         members.forEach((member, index) => {
             const memberRef = memberCardRef.current[index];
             if (memberRef) {
                 const memberData = memberRef.getMemberData();
-                if (memberData) {
-                    allMemberData[`member${member.id}`] = memberData;
-                }
+                allMemberData[`member${member.id}`] = memberData;
             }
         });
-        
-    
+
         const finalData = {
             teamName: teamName || "",
             members: Object.values(allMemberData),
@@ -57,20 +76,26 @@ function TeamMembers({ exitFunction }) {
             cancelSubmission();
             return;
         }
-    
+
         for (const [index, member] of finalData.members.entries()) {
-            const { name, uni, email, ntuEmail, tele, course, gender, size, night } = member;
-    
+            // DEBUG: Log degreeType for each member
+            console.log(`Member ${index + 1} degreeType:`, member.degreeType, '| All:', member);
+            const { name, uni, email, ntuEmail, matricNo, tele, course, school, degreeType, year, nationality, diet, gender, size, night } = member;
+
             const requiredFields = [
-                { field: 'name', message: `Name is required for member ${member.id}.` },  // Use member.id here
-                { field: 'uni', message: `University is required for member ${member.id}.` },
-                { field: 'email', message: `Email is required for member ${member.id}.` },
-                { field: 'gender', message: `Gender is required for member ${member.id}.` },
-                { field: 'tele', message: `Telegram handle is required for member ${member.id}.` },
-                { field: 'course', message: `Course/Year is required for member ${member.id}.` },
-                { field: 'size', message: `T-shirt size is required for member ${member.id}.` },
+                { field: 'name', message: `Name is required for member ${index + 1}.` },
+                { field: 'uni', message: `University is required for member ${index + 1}.` },
+                { field: 'email', message: `Email is required for member ${index + 1}.` },
+                { field: 'gender', message: `Gender is required for member ${index + 1}.` },
+                { field: 'tele', message: `Telegram handle is required for member ${index + 1}.` },
+                { field: 'course', message: `Course is required for member ${index + 1}.` },
+                { field: 'school', message: `School is required for member ${index + 1}.` },
+                { field: 'degreeType', message: `Degree type is required for member ${index + 1}.` },
+                { field: 'year', message: `Year is required for member ${index + 1}.` },
+                { field: 'nationality', message: `Nationality is required for member ${index + 1}.` },
+                { field: 'diet', message: `Dietary preference is required for member ${index + 1}.` },
+                { field: 'size', message: `T-shirt size is required for member ${index + 1}.` },
             ];
-    
 
             for (const { field, message } of requiredFields) {
                 if (!member[field] || (typeof member[field] === 'string' && member[field].trim() === "")) {
@@ -79,9 +104,13 @@ function TeamMembers({ exitFunction }) {
                     return;
                 }
             }
-            
-    
+
             if (uni === 'Nanyang Technological University') {
+                if (!matricNo || matricNo.trim() === "") {
+                    setErrorText(`Matriculation number is required for member ${index + 1}.`);
+                    cancelSubmission();
+                    return;
+                }
                 if (!ntuEmail || ntuEmail.trim() === "") {
                     setErrorText(`NTU email is required for member ${index + 1}.`);
                     cancelSubmission();
@@ -108,15 +137,15 @@ function TeamMembers({ exitFunction }) {
                 cancelSubmission();
                 return;
             }
-    
-            const courseRegex = /^[a-zA-Z0-9\s]+\/[a-zA-Z0-9\s]+$/;
-            if (course && !courseRegex.test(course)) {
-                setErrorText(`Invalid course/year format for member ${index + 1}. It must be alphanumeric and separated by a "/".`);
-                cancelSubmission();
-                return;
-            }
         }
-    
+
+        if (!showModal) {
+            performSubmit(finalData);
+            return;
+        }
+    };
+
+    const performSubmit = async (finalData) => {
         try {
             setLoading(true);
             const response = await fetch('/api/submit', {
@@ -126,24 +155,25 @@ function TeamMembers({ exitFunction }) {
                 },
                 body: JSON.stringify({ team: finalData }),
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.json();
                 cancelSubmission();
                 setErrorText(errorData.error || "An error occurred while submitting the form.");
                 return;
             }
-    
+
             memberCardRef.current.forEach((memberRef) => {
                 if (memberRef) {
                     memberRef.resetFields();
                 }
             });
-    
+
             setErrorText("");
             router.push('/confirmed');
             setLoading(false);
         } catch (error) {
+            console.log('Team submission error:', error);
             setLoading(false);
             cancelSubmission();
             setErrorText("Failed to submit the form. Please try again later.");
@@ -165,7 +195,9 @@ function TeamMembers({ exitFunction }) {
         if (members.length < 5) {
             const newId = members[members.length - 1]?.id + 1 || 4;
             if (newId <= 6) {
-                setMembers([...members, { id: newId, isLeader: false }]);
+                const newMembers = [...members, { id: newId, isLeader: false }];
+                setMembers(newMembers);
+                localStorage.setItem('team_members', JSON.stringify(newMembers));
 
                 await controls.start({
                     y: -25,
@@ -187,7 +219,7 @@ function TeamMembers({ exitFunction }) {
 
     const deleteMember = (id) => {
         setDeletingId(id);
-    
+
         setTimeout(() => {
             const updatedMembers = members.filter((member) => member.id !== id);
             if (updatedMembers.length > 0 && !updatedMembers[0].isLeader) {
@@ -195,7 +227,7 @@ function TeamMembers({ exitFunction }) {
             }
             setMembers(updatedMembers);
             setCanAddMembers(updatedMembers.length < 5);
-            
+            localStorage.setItem('team_members', JSON.stringify(updatedMembers));
             setDeletingId(null);
         }, 500);
     };
@@ -308,6 +340,8 @@ function TeamMembers({ exitFunction }) {
                 <SleekButtonBack text="Go Back" onClick={exitFunction} disabled={submissionMode}/>
                 <SleekButton text={'Confirm & Submit'} styles={'text-white'} onClick={startSubmission} disabled={submissionMode} />
             </div>
+
+            {/* Confirm Submission modal removed as requested */}
         </div>
     )
 }

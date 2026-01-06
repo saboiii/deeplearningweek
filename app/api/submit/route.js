@@ -1,134 +1,197 @@
 import Participant from '@/models/participant';
 import connectDB from '@/lib/db';
 import nodemailer from 'nodemailer';
+import fs from 'fs';
+import path from 'path';
 
 export async function POST(request) {
-  try {
+  const version = process.env.NEXT_PUBLIC_VERSION;
+  if (version !== "1.0.0") {
     return new Response(
       JSON.stringify({ error: 'Registrations closed.' }),
       { status: 400 }
     );
-    // await connectDB();
-    // const data = await request.json();
+  } else {
+    try {
+      await connectDB();
+      const data = await request.json();
 
-    // const sendConfirmationEmail = async (email, toName) => {
-    //   const transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //       user: process.env.EMAIL,
-    //       pass: process.env.EMAIL_PASS,
-    //     },
-    //   });
+      const validateMember = (member) => {
+        const errors = [];
+        const requiredFields = ['name', 'uni', 'email', 'gender', 'tele', 'course', 'school', 'degreeType', 'year', 'nationality', 'diet', 'size'];
+        for (const field of requiredFields) {
+          if (!member[field] || (typeof member[field] === 'string' && member[field].trim() === '')) {
+            errors.push(`${field} is required.`);
+          }
+        }
+        if (member.uni === 'Nanyang Technological University') {
+          if (!member.matricNo || member.matricNo.trim() === '') {
+            errors.push('Matriculation number is required for NTU students.');
+          }
+          if (!member.ntuEmail || member.ntuEmail.trim() === '') {
+            errors.push('NTU email is required for NTU students.');
+          }
+        }
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (member.email && !emailRegex.test(member.email)) {
+          errors.push('Invalid email format.');
+        }
+        if (member.ntuEmail && !emailRegex.test(member.ntuEmail)) {
+          errors.push('Invalid NTU email format.');
+        }
+        const teleRegex = /^[a-zA-Z0-9_]{5,}$/;
+        if (member.tele && !teleRegex.test(member.tele)) {
+          errors.push('Invalid Telegram handle.');
+        }
+        return errors;
+      };
 
-    //   const mailOptions = {
-    //     from: 'deeplearningweek@gmail.com',
-    //     to: email,
-    //     subject: 'Confirmation of Your Deep Learning Week Participation',
-    //     html: `
-    //       <p>Dear ${toName},</p>
-    //       <p>We are thrilled to welcome you to <b>Deep Learning Week 2025</b>!</p>
-          
-    //       <p><b>Here are the event details you need to know:</b></p>
-    //       <ul>
-    //         <li>📅 <b>Opening Ceremony:</b> 28th February</li>
-    //         <li>📍 <b>Venue:</b> LT 1A, NTU</li>
-    //         <li>⏰ <b>Time:</b> 4:30 PM (Registration and Networking)</li>
-    //       </ul>
-      
-    //       <p>This year, our sponsors are bringing exclusive workshops and learning opportunities designed to help you sharpen your expertise, no matter your experience level.</p>
-      
-    //       <p>No matter your background, this is the perfect time to build a tech portfolio that speaks volumes. Whether you're innovating in <b>Finance, Healthcare, Education, Media, or Sustainability</b>, Deep Learning Week is where we develop groundbreaking solutions to real-world problems.</p>
-      
-    //       <p><b>We'll be sharing information about event tracks and prizes soon, so stay tuned!</b></p>
-      
-    //       <p><b>Important:</b> Join our official Telegram channel for the latest updates and announcements: <a href="https://t.me/deeplearningweek2025">https://t.me/deeplearningweek2025</a></p>
-      
-    //       <p>If you have any questions or need assistance, don't hesitate to reach out. Our team is here to help! You can contact us via Telegram:</p>
-    //       <ul>
-    //         <li>@Abhiram_Kadaba</li>
-    //         <li>@nitinnn17</li>
-    //         <li>@ARJUN022</li>
-    //         <li>@Ninadd07</li>
-    //       </ul>
-      
-    //       <p>We can't wait to see you at the event!</p>
-      
-    //       <p>Best regards,<br>
-    //       <b>The Deep Learning Week Team</b><br>
-    //       <i>MLDA@EEE</i></p>
-    //     `,
-    //   };
+      const sendConfirmationEmail = async (email, toName) => {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
 
+        // Read the HTML file and replace ${toName}
+        const htmlPath = path.join(process.cwd(), 'app', 'api', 'submit', 'dlw-confirmation-2026.html');
+        let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    //   try {
-    //     await transporter.sendMail(mailOptions);
-    //     console.log(`Confirmation email sent to ${email}`);
-    //   } catch (error) {
-    //     console.error('Error sending confirmation email:', error);
-    //   }
-    // };
+        // Replace ${toName}
+        htmlContent = htmlContent.replace(/\$\{toName\}/g, toName);
 
-    // const checkIfRegistered = async (email) => {
-    //   const existingSolo = await Participant.findOne({ 'solo.email': email });
-    //   const existingTeam = await Participant.findOne({ 'members.email': email });
-    //   return existingSolo || existingTeam;
-    // };
+        // Replace base64 image with public URL
+        const baseUrl = process.env.NODE_ENV === 'production' ? 'https://dlweek.com' : 'http://localhost:3000';
+        htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${baseUrl}/images/banner.png"`);
 
-    // if (data.team && data.team.teamName && data.team.members && Array.isArray(data.team.members)) {
-    //   const membersArray = Object.values(data.team.members);
-    //   for (const member of membersArray) {
-    //     if (await checkIfRegistered(member.email)) {
-    //       return new Response(
-    //         JSON.stringify({ error: `Registration failed: ${member.email} has already registered.` }),
-    //         { status: 400 }
-    //       );
-    //     }
-    //   }
+        const mailOptions = {
+          from: 'deeplearningweek@gmail.com',
+          to: email,
+          subject: 'you’re in. dlw 2026 registration confirmed',
+          html: htmlContent,
+        };
 
-    //   const teamParticipant = new Participant({
-    //     teamName: data.team.teamName,
-    //     members: membersArray,
-    //   });
+        try {
+          await transporter.sendMail(mailOptions);
+          console.log(`Confirmation email sent to ${email}`);
+        } catch (error) {
+          console.error('Error sending confirmation email:', error);
+        }
+      };
+// Standalone test script to send a test email to saba.x.azad@gmail.com
+if (process.env.NODE_ENV !== 'production' && process.env.TEST_DLW_EMAIL === 'true') {
+  (async () => {
+    const testName = 'Saba Azad';
+    const testEmail = 'saba.x.azad@gmail.com';
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+    const htmlPath = path.join(process.cwd(), 'app', 'api', 'submit', 'dlw-confirmation-2026.html');
+    let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    //   const savedTeam = await teamParticipant.save();
+    // Replace ${toName}
+    htmlContent = htmlContent.replace(/\$\{toName\}/g, testName);
 
-    //   for (const member of membersArray) {
-    //     await sendConfirmationEmail(member.email, member.name);
-    //   }
+    // Replace base64 image with public URL
+    const baseUrl = process.env.NODE_ENV === 'production' ? 'https://dlweek.com' : 'http://localhost:3000';
+    htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${baseUrl}/images/banner.png"`);
+    const mailOptions = {
+      from: 'deeplearningweek@gmail.com',
+      to: testEmail,
+      subject: 'you’re in. dlw 2026 registration confirmed',
+      html: htmlContent,
+    };
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log(`Test confirmation email sent to ${testEmail}`);
+    } catch (error) {
+      console.error('Error sending test confirmation email:', error);
+    }
+  })();
+}
 
-    //   return new Response(JSON.stringify(savedTeam), { status: 201 });
+      const checkIfRegistered = async (email) => {
+        const existingSolo = await Participant.findOne({ 'solo.email': email });
+        const existingTeam = await Participant.findOne({ 'members.email': email });
+        return existingSolo || existingTeam;
+      };
 
-    // } else if (data.solo) {
-    //   const soloEmail = data.solo.email;
+      if (data.team && data.team.teamName && data.team.members && Array.isArray(data.team.members)) {
+        const membersArray = Object.values(data.team.members);
+        for (const member of membersArray) {
+          const errors = validateMember(member);
+          if (errors.length > 0) {
+            return new Response(
+              JSON.stringify({ error: `Validation failed: ${errors.join(' ')}` }),
+              { status: 400 }
+            );
+          }
+          if (await checkIfRegistered(member.email)) {
+            return new Response(
+              JSON.stringify({ error: `Registration failed: ${member.email} has already registered.` }),
+              { status: 400 }
+            );
+          }
+        }
 
-    //   if (await checkIfRegistered(soloEmail)) {
-    //     return new Response(
-    //       JSON.stringify({ error: `${soloEmail} has already registered. Please contact @nitinnn17 to re-register.` }),
-    //       { status: 400 }
-    //     );
-    //   }
+        const teamParticipant = new Participant({
+          teamName: data.team.teamName,
+          members: membersArray,
+        });
 
-    //   const soloParticipant = new Participant({
-    //     solo: data.solo,
-    //   });
+        const savedTeam = await teamParticipant.save();
 
-    //   const savedSolo = await soloParticipant.save();
+        for (const member of membersArray) {
+          await sendConfirmationEmail(member.email, member.name);
+        }
 
-    //   await sendConfirmationEmail(soloEmail, data.solo.name);
+        return new Response(JSON.stringify(savedTeam), { status: 201 });
 
-    //   return new Response(JSON.stringify(savedSolo), { status: 201 });
+      } else if (data.solo) {
+        const errors = validateMember(data.solo);
+        if (errors.length > 0) {
+          return new Response(
+            JSON.stringify({ error: `Validation failed: ${errors.join(' ')}` }),
+            { status: 400 }
+          );
+        }
+        const soloEmail = data.solo.email;
 
-    // } else {
-    //   return new Response(
-    //     JSON.stringify({ error: 'Invalid data structure.' }),
-    //     { status: 400 }
-    //   );
-    // }
-  } catch (error) {
-    console.error('Error saving participant:', error.message);
-    return new Response(
-      JSON.stringify({ error: 'Error saving participant.', details: error.message }),
-      { status: 500 }
-    );
+        if (await checkIfRegistered(soloEmail)) {
+          return new Response(
+            JSON.stringify({ error: `${soloEmail} has already registered. Please contact @nitinnn17 to re-register.` }),
+            { status: 400 }
+          );
+        }
+
+        const soloParticipant = new Participant({
+          solo: data.solo,
+        });
+
+        const savedSolo = await soloParticipant.save();
+
+        await sendConfirmationEmail(soloEmail, data.solo.name);
+
+        return new Response(JSON.stringify(savedSolo), { status: 201 });
+
+      } else {
+        return new Response(
+          JSON.stringify({ error: 'Invalid data structure.' }),
+          { status: 400 }
+        );
+      }
+    } catch (error) {
+      console.error('Error saving participant:', error.message);
+      return new Response(
+        JSON.stringify({ error: 'Error saving participant.', details: error.message }),
+        { status: 500 }
+      );
+    }
   }
 }

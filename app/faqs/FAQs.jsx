@@ -9,11 +9,15 @@ function FAQs() {
     const faqsV1 = [
         {
             question: 'Who can participate?',
-            answer: 'The hackathon is open to university students across Singapore, including undergraduate, postgraduate, and PhD students from NTU, NUS, SIT, SUTD, SMU, and SUSS. Participants of all skill levels in AI and machine learning are welcome. However, please note that some tracks and prizes will be exclusively reserved for undergraduate students.',
+            answer: 'The hackathon is open to university students across Singapore, including undergraduate and postgraduate (masters & PhD) students from NTU, NUS, SIT, SUTD, SMU, and SUSS. Participants of all skill levels in AI and machine learning are welcome. However, please note that some tracks and prizes will be exclusively reserved for undergraduate students.',
         },
         {
             question: 'Is it open for people with no Computer Science Background?',
             answer: 'Yes, the hackathon is open to participants from all backgrounds, not just those with a Computer Science background. Beginners and non-technical participants are welcome, and resources such as workshops, guides, and tools will be provided to help you get started.',
+        },
+        {
+            question: 'What sort of projects can we work on?',
+            answer: 'Participants can build pretty much anything they want, such as robots, IoT devices, SaaS applications, end-to-end intelligent systems, and more, as long as it uses deep learning and AI technology with a suitably complex architecture, within the given duration (the number of hours will be announced closer to the event). However, additional constraints per track will only be shared in the participant handbook.',
         },
         {
             question: 'How can I register, and is there a participation fee?',
@@ -25,15 +29,23 @@ function FAQs() {
         },
         {
             question: 'Will I be provided with resources to get started?',
-            answer: 'Yes, participants will be provided with a variety of resources to get started! These include workshops, APIs and tools, cloud credits, and online courses as well as documentation and guides.',
+            answer: 'Yes, participants will be provided with a variety of resources to get started! These include workshops, APIs and tools, cloud credits, and online courses as well as documentation and guides. This will be available in the participant handbook sent out once the event commences.',
+        },
+        {
+            question: 'When and where will I get the participant handbook?',
+            answer: 'The participant handbook will be publicly released at the end of the opening ceremony on Day 1 of the event. It will be sent to all registered participants via email and will also be made available on our official website and telegram channel for easy access.',
         },
         {
             question: 'Do I need to form a team beforehand?',
             answer: 'No, you don\'t need to form a team beforehand! You can register individually. If you already have a team, you can register together. Teams can consist of 2 to 5 members.',
         },
         {
+            question: 'If I don\'t have a team, will I be able to find one at the event?',
+            answer: 'Yes, if you don\'t have a team, you\'ll have the opportunity to form one during the registration session at the event. We encourage networking and collaboration among participants to help you find team members with complementary skills and interests. You will be provided a form to register your new team before 10:00AM on Day 1 of the event. If you\'re unable to find a team by then, you will be randomly grouped with other individual registrants by 10:30AM (tentative).',
+        },
+        {
             question: 'What are the judging criteria for the hackathon?',
-            answer: 'Projects will be judged on innovation, technical execution, impact, feasibility, and presentation, with more details revealed closer to the event.',
+            answer: 'Projects will be judged on innovation, technical execution, impact, feasibility, and presentation, with more details revealed once the event begins in the participant handbook.',
         },
         {
             question: 'Why is the hackathon overnight?',
@@ -41,7 +53,7 @@ function FAQs() {
         },
         {
             question: 'What kind of overnight activities are planned?',
-            answer: 'Overnight activities include karaoke, poker tournaments, stargazing, sunrise chasing, and other fun challenges to keep participants energized and engaged. (No Gambling will be involved)',
+            answer: 'Overnight activities include stargazing and E-sports tournaments to keep participants energized and engaged. (No Gambling will be involved)',
         },
         {
             question: 'What facilities are available overnight?',
@@ -58,6 +70,10 @@ function FAQs() {
         {
             question: 'Is there security in place for overnight participants?',
             answer: 'Yes, security measures will be in place to ensure the safety of all overnight participants, including restricted access to the venue for registered individuals only and on-site monitoring throughout the event.',
+        },
+        {
+            question: 'Will I be provided blankets or sleeping mats?',
+            answer: 'No, this year\'s edition of DLW will not be providing blankets or sleeping mats. Participants are encouraged to bring their own if they plan to rest during the event.',
         },
     ];
 

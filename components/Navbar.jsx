@@ -29,21 +29,22 @@ function Navbar() {
             ]
 
         },
-        // "Agenda": {
-        //     title: "Agenda",
-        //     description: "Check out the schedule of workshops, talks, and networking sessions.",
-        //     caption: "Schedules",
-        //     items: [
-        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda?day=1' },
-        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 2", link: '/agenda?day=2' },
-        //         { icon: <MdOutlineEventNote size={20} />, label: "Day 4", link: '/agenda?day=4' },
-        //         // { icon: <IoIosCog size={20} />, label: "Workshop I" },
-        //         // { icon: <IoIosCog size={20} />, label: "Workshop II" },
-        //         // { icon: <IoIosCog size={20} />, label: "Workshop III" },
-        //         // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
-        //     ],
-        //     link: '/agenda'
-        // },
+        "Agenda": {
+            title: "Agenda",
+            description: "Check out the schedule of workshops, talks, and networking sessions.",
+            caption: "Schedules",
+            items: [
+                { icon: <MdOutlineEventNote size={20} />, label: "Pre-Hackathon", link: '/agenda?day=pre' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Day 1", link: '/agenda?day=main' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Overnight Stay", link: '/agenda?day=overnight' },
+                { icon: <MdOutlineEventNote size={20} />, label: "Final Day", link: '/agenda?day=final' },
+                // { icon: <IoIosCog size={20} />, label: "Workshop I" },
+                // { icon: <IoIosCog size={20} />, label: "Workshop II" },
+                // { icon: <IoIosCog size={20} />, label: "Workshop III" },
+                // { icon: <MdOutlineEmojiEvents size={20} />, label: "Other Events" },
+            ],
+            link: '/agenda'
+        },
         // "Speakers": {
         //     title: "Speakers",
         //     description: "Meet the amazing speakers who will be sharing their knowledge with us.",
@@ -108,10 +109,10 @@ function Navbar() {
                     <div className='menuDivider' />
                     {/* <Link href='/about' className='flex'>About Us</Link>
                     <div className='menuDivider'/> */}
-                    <Link href='/recruitment' className='flex'>Recruitment</Link>
-                    <div className='menuDivider'/>
-                    {/* <Link href='/agenda' className='flex' onClick={handleLinkClick}>Agenda</Link>
-                    <div className='menuDivider' /> */}
+                    {/* <Link href='/recruitment' className='flex'>Recruitment</Link>
+                    <div className='menuDivider'/> */}
+                    <Link href='/agenda' className='flex' onClick={handleLinkClick}>Agenda</Link>
+                    <div className='menuDivider' />
                     {/* <Link href='/' className='flex'>Speakers</Link>
                     <div className='menuDivider'/> */}
                     <Link href='/faqs' className='flex' onClick={handleLinkClick}>FAQs</Link>

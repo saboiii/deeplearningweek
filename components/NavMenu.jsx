@@ -36,14 +36,14 @@ function NavMenu({menuData}) {
           >
             About Us
           </div> */}
-          <Link href='/recruitment' className="flex navMenuItem">Recruitment</Link>
-          {/* <div
+          {/* <Link href='/recruitment' className="flex navMenuItem">Recruitment</Link> */}
+          <div
             className="flex navMenuItem"
             onMouseEnter={() => handleMouseEnter("Agenda")}
             onMouseLeave={handleMouseLeave}
           >
             Agenda
-          </div> */}
+          </div>
           {/* <div
             className="flex navMenuItem"
             onMouseEnter={() => handleMouseEnter("Speakers")}

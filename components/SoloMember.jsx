@@ -5,6 +5,7 @@ import SleekButtonBack from './SleekButtonBack'
 import { FiMousePointer } from "react-icons/fi";
 import { PiHandTap } from "react-icons/pi";
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 function SoloMember({ exitFunction }) {
     const router = useRouter()
@@ -14,20 +15,26 @@ function SoloMember({ exitFunction }) {
     const [errorText, setErrorText] = useState("");
     const [submissionMode, setSubmissionMode] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async () => {
         const memberData = memberCardRef.current.getMemberData();
-    
+
         const requiredFields = [
             { field: 'name', message: 'Name is a required field.' },
             { field: 'uni', message: 'University is a required field.' },
             { field: 'email', message: 'Email is a required field.' },
             { field: 'gender', message: 'Gender is a required field.' },
             { field: 'tele', message: 'Telegram handle is a required field.' },
-            { field: 'course', message: 'Course/Year is a required field.' },
+            { field: 'course', message: 'Course is a required field.' },
+            { field: 'school', message: 'School is a required field.' },
+            { field: 'degreeType', message: 'Degree type is a required field.' },
+            { field: 'year', message: 'Year is a required field.' },
+            { field: 'nationality', message: 'Nationality is a required field.' },
+            { field: 'diet', message: 'Dietary preference is a required field.' },
             { field: 'size', message: 'T-shirt size is a required field.' },
         ];
-    
+
         for (const { field, message } of requiredFields) {
             if (!memberData[field] || (typeof memberData[field] === 'string' && memberData[field].trim() === "")) {
                 setErrorText(message);
@@ -35,8 +42,7 @@ function SoloMember({ exitFunction }) {
                 return;
             }
         }
-        
-    
+
         const emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (memberData.email && !emailCheck.test(memberData.email)) {
             setErrorText('Please enter a valid email address.');
@@ -49,22 +55,14 @@ function SoloMember({ exitFunction }) {
             cancelSubmission();
             return;
         }
-    
+
         const telePattern = /^[a-zA-Z0-9_]{5,}$/;
         if (memberData.tele && !telePattern.test(memberData.tele)) {
             setErrorText('Telegram handle must be at least 5 characters long and may consist only of a-z, 0-9, and underscores.');
             cancelSubmission();
             return;
         }
-    
-        const courseYearPattern = /^[a-zA-Z0-9\s]+\/[a-zA-Z0-9\s]+$/;
 
-        if (memberData.course && !courseYearPattern.test(memberData.course)) {
-            setErrorText('Course/Year must be alphanumeric and separated by a "/".');
-            cancelSubmission();
-            return;
-        }
-    
         if (memberData.uni === 'Nanyang Technological University') {
             if (!memberData.matricNo || memberData.matricNo.trim() === "") {
                 setErrorText('Matriculation number is required for NTU students.');
@@ -78,7 +76,10 @@ function SoloMember({ exitFunction }) {
             }
         }
 
-    
+        performSubmit();
+    };
+
+    const performSubmit = async () => {
         try {
             setLoading(true);
             const response = await fetch('/api/submit', {
@@ -88,19 +89,20 @@ function SoloMember({ exitFunction }) {
                 },
                 body: JSON.stringify({ solo: memberData }),
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.json();
                 setErrorText(errorData.error || "An error occurred while submitting the form.");
                 cancelSubmission();
                 return;
             }
-    
+
             memberCardRef.current.resetFields();
             setErrorText("");
             router.push('/confirmed');
             setLoading(false);
         } catch (error) {
+            console.log('Submission error:', error);
             setLoading(false);
             cancelSubmission();
             setErrorText("Failed to submit the form. Please try again later.");
@@ -130,6 +132,8 @@ function SoloMember({ exitFunction }) {
                     </div>
                 </div>
             </div>
+
+            {/* Confirm Submission modal removed as requested */}
             <div className='hidden md:flex text-xs uppercase items-center text-[#8d8eab] font-medium mt-[12vh]'>
                 <FiMousePointer size={12} className='inline mr-2' />
                 Click on the fields to edit them.
