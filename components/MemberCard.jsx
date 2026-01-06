@@ -239,7 +239,7 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
                     />
                 </div>
             </div>
-            <div className='flex flex-col text-black bg-gradient-to-br from-[#212738]/40 to-[#1b1b33]/40 backdrop-blur-sm w-full px-10 gap-2 pb-8 lg:pb-0'>
+            <div className='flex flex-col text-black bg-gradient-to-br from-[#212738]/40 to-[#1b1b33]/40 backdrop-blur-sm w-full px-4 pb-5 md:px-10 gap-2 md:pb-8 lg:pb-0'>
                 <div className='flex flex-col lg:flex-row mb-4 mt-0 px-1 lg:px-0 lg:mb-0 lg:h-24 gap-4 w-full pt-2 lg:pt-6 justify-start lg:justify-end z-30 text-white lg:order-none order-4'>
                     {/* <div className='flex flex-row lg:h-10 items-center text-[#8889a5]'>
                         <label className='mr-2 text-sm'>Course/Year:</label>

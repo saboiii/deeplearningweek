@@ -17,6 +17,7 @@ function SoloMember({ exitFunction }) {
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
+
     const handleSubmit = async () => {
         const memberData = memberCardRef.current.getMemberData();
 
@@ -76,10 +77,10 @@ function SoloMember({ exitFunction }) {
             }
         }
 
-        performSubmit();
+        performSubmit(memberData);
     };
 
-    const performSubmit = async () => {
+    const performSubmit = async (memberData) => {
         try {
             setLoading(true);
             const response = await fetch('/api/submit', {
