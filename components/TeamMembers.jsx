@@ -9,7 +9,6 @@ import { RxCross2 } from "react-icons/rx";
 import { motion, useAnimation } from 'framer-motion';
 import { useRouter } from 'next/navigation'
 import Lenis from '@studio-freight/lenis';
-import Link from 'next/link';
 
 function TeamMembers({ exitFunction }) {
     const router = useRouter()

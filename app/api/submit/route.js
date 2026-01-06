@@ -116,8 +116,14 @@ export async function POST(request) {
 
         const savedTeam = await teamParticipant.save();
 
+
         for (const member of membersArray) {
+          // Always send to regular email
           await sendConfirmationEmail(member.email, member.name);
+          // If NTU email exists and is different, send to NTU email as well
+          if (member.ntuEmail && member.ntuEmail !== member.email) {
+            await sendConfirmationEmail(member.ntuEmail, member.name);
+          }
         }
 
         return new Response(JSON.stringify(savedTeam), { status: 201 });
@@ -145,7 +151,13 @@ export async function POST(request) {
 
         const savedSolo = await soloParticipant.save();
 
+
+        // Always send to regular email
         await sendConfirmationEmail(soloEmail, data.solo.name);
+        // If NTU email exists and is different, send to NTU email as well
+        if (data.solo.ntuEmail && data.solo.ntuEmail !== soloEmail) {
+          await sendConfirmationEmail(data.solo.ntuEmail, data.solo.name);
+        }
 
         return new Response(JSON.stringify(savedSolo), { status: 201 });
 
