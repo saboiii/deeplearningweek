@@ -59,4 +59,4 @@ participantSchema.pre('validate', function (next) {
 
 const Participant = mongoose.models.Participant || mongoose.model('Participant', participantSchema);
 
-module.exports = Participant;
+export default Participant;

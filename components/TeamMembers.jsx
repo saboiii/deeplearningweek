@@ -78,6 +78,8 @@ function TeamMembers({ exitFunction }) {
             console.log(`Member ${index + 1} degreeType:`, member.degreeType, '| All:', member);
             const { name, uni, email, ntuEmail, matricNo, tele, course, school, degreeType, year, nationality, diet, gender, size, night } = member;
 
+
+            // Only require 'school' for NTU students
             const requiredFields = [
                 { field: 'name', message: `Name is required for member ${index + 1}.` },
                 { field: 'uni', message: `University is required for member ${index + 1}.` },
@@ -85,7 +87,6 @@ function TeamMembers({ exitFunction }) {
                 { field: 'gender', message: `Gender is required for member ${index + 1}.` },
                 { field: 'tele', message: `Telegram handle is required for member ${index + 1}.` },
                 { field: 'course', message: `Course is required for member ${index + 1}.` },
-                { field: 'school', message: `School is required for member ${index + 1}.` },
                 { field: 'degreeType', message: `Degree type is required for member ${index + 1}.` },
                 { field: 'year', message: `Year is required for member ${index + 1}.` },
                 { field: 'nationality', message: `Nationality is required for member ${index + 1}.` },
@@ -109,6 +110,11 @@ function TeamMembers({ exitFunction }) {
                 }
                 if (!ntuEmail || ntuEmail.trim() === "") {
                     setErrorText(`NTU email is required for member ${index + 1}.`);
+                    cancelSubmission();
+                    return;
+                }
+                if (!school || school.trim() === "") {
+                    setErrorText(`School is required for member ${index + 1}.`);
                     cancelSubmission();
                     return;
                 }

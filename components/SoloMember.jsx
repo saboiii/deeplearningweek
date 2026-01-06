@@ -21,6 +21,8 @@ function SoloMember({ exitFunction }) {
     const handleSubmit = async () => {
         const memberData = memberCardRef.current.getMemberData();
 
+
+        // Only require 'school' for NTU students
         const requiredFields = [
             { field: 'name', message: 'Name is a required field.' },
             { field: 'uni', message: 'University is a required field.' },
@@ -28,7 +30,6 @@ function SoloMember({ exitFunction }) {
             { field: 'gender', message: 'Gender is a required field.' },
             { field: 'tele', message: 'Telegram handle is a required field.' },
             { field: 'course', message: 'Course is a required field.' },
-            { field: 'school', message: 'School is a required field.' },
             { field: 'degreeType', message: 'Degree type is a required field.' },
             { field: 'year', message: 'Year is a required field.' },
             { field: 'nationality', message: 'Nationality is a required field.' },
@@ -72,6 +73,11 @@ function SoloMember({ exitFunction }) {
             }
             if (!memberData.ntuEmail || memberData.ntuEmail.trim() === "") {
                 setErrorText('NTU email is required for NTU students.');
+                cancelSubmission();
+                return;
+            }
+            if (!memberData.school || memberData.school.trim() === "") {
+                setErrorText('School is required for NTU students.');
                 cancelSubmission();
                 return;
             }

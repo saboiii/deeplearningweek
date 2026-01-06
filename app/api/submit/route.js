@@ -18,7 +18,8 @@ export async function POST(request) {
 
       const validateMember = (member) => {
         const errors = [];
-        const requiredFields = ['name', 'uni', 'email', 'gender', 'tele', 'course', 'school', 'degreeType', 'year', 'nationality', 'diet', 'size'];
+        // Only require 'school' for NTU students
+        const requiredFields = ['name', 'uni', 'email', 'gender', 'tele', 'course', 'degreeType', 'year', 'nationality', 'diet', 'size'];
         for (const field of requiredFields) {
           if (!member[field] || (typeof member[field] === 'string' && member[field].trim() === '')) {
             errors.push(`${field} is required.`);
@@ -30,6 +31,9 @@ export async function POST(request) {
           }
           if (!member.ntuEmail || member.ntuEmail.trim() === '') {
             errors.push('NTU email is required for NTU students.');
+          }
+          if (!member.school || member.school.trim() === '') {
+            errors.push('School is required for NTU students.');
           }
         }
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
