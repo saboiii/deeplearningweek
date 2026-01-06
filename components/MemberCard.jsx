@@ -125,7 +125,6 @@ const MemberCard = forwardRef(({ isLeader, regType, memberCardId, errorText }, r
         }
     }, [regType, memberCardId]);
 
-    // Extra: If localStorage changes after mount (e.g. user logs in/out or clears storage), update state
     useEffect(() => {
         const handler = () => {
             const storedData = localStorage.getItem(`${regType}_${memberCardId}`);

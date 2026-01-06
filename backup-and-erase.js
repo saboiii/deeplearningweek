@@ -75,7 +75,6 @@ async function main() {
 
     console.log(`Found ${participants.length} participants.`);
 
-    // Create backup folder
     const backupDir = path.join(__dirname, 'backup');
     if (!fs.existsSync(backupDir)) {
       fs.mkdirSync(backupDir);

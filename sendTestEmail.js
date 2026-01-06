@@ -17,13 +17,10 @@ try {
   process.exit(1);
 }
 
-// Replace ${toName}
 htmlContent = htmlContent.replace(/\$\{toName\}/g, testName);
 
-// Replace base64 image with public URL
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://dlweek.com' : 'http://localhost:3000';
-// Example: replace all <img ... src="data:image/png;base64,..."> with <img ... src="{baseUrl}/images/banner.png">
-htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${baseUrl}/images/banner.png"`);
+const imageUrl = 'https://www.dlweek.com/images/banner-conf-email.png';
+htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${imageUrl}"`);
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',

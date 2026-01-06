@@ -41,9 +41,7 @@ function TeamMembers({ exitFunction }) {
             try {
                 const parsed = JSON.parse(savedMembers);
                 setMembers(parsed);
-            } catch (e) {
-                // ignore
-            }
+            } catch (e) {}
         }
     }, []);
 
@@ -78,7 +76,6 @@ function TeamMembers({ exitFunction }) {
         }
 
         for (const [index, member] of finalData.members.entries()) {
-            // DEBUG: Log degreeType for each member
             console.log(`Member ${index + 1} degreeType:`, member.degreeType, '| All:', member);
             const { name, uni, email, ntuEmail, matricNo, tele, course, school, degreeType, year, nationality, diet, gender, size, night } = member;
 

@@ -55,16 +55,19 @@ export async function POST(request) {
           },
         });
 
-        // Read the HTML file and replace ${toName}
         const htmlPath = path.join(process.cwd(), 'app', 'api', 'submit', 'dlw-confirmation-2026.html');
-        let htmlContent = fs.readFileSync(htmlPath, 'utf8');
+        let htmlContent = '';
+        try {
+          htmlContent = fs.readFileSync(htmlPath, 'utf8');
+        } catch (err) {
+          console.error('Error reading HTML template:', err);
+          return;
+        }
 
-        // Replace ${toName}
         htmlContent = htmlContent.replace(/\$\{toName\}/g, toName);
 
-        // Replace base64 image with public URL
-        const baseUrl = process.env.NODE_ENV === 'production' ? 'https://dlweek.com' : 'http://localhost:3000';
-        htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${baseUrl}/images/banner.png"`);
+        const imageUrl = 'https://www.dlweek.com/images/banner-conf-email.png';
+        htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${imageUrl}"`);
 
         const mailOptions = {
           from: 'deeplearningweek@gmail.com',
@@ -80,41 +83,7 @@ export async function POST(request) {
           console.error('Error sending confirmation email:', error);
         }
       };
-// Standalone test script to send a test email to saba.x.azad@gmail.com
-if (process.env.NODE_ENV !== 'production' && process.env.TEST_DLW_EMAIL === 'true') {
-  (async () => {
-    const testName = 'Saba Azad';
-    const testEmail = 'saba.x.azad@gmail.com';
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-    const htmlPath = path.join(process.cwd(), 'app', 'api', 'submit', 'dlw-confirmation-2026.html');
-    let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    // Replace ${toName}
-    htmlContent = htmlContent.replace(/\$\{toName\}/g, testName);
-
-    // Replace base64 image with public URL
-    const baseUrl = process.env.NODE_ENV === 'production' ? 'https://dlweek.com' : 'http://localhost:3000';
-    htmlContent = htmlContent.replace(/<img([^>]+)src="data:image\/png;base64,[^"]+"/g, `<img$1src="${baseUrl}/images/banner.png"`);
-    const mailOptions = {
-      from: 'deeplearningweek@gmail.com',
-      to: testEmail,
-      subject: 'you’re in. dlw 2026 registration confirmed',
-      html: htmlContent,
-    };
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log(`Test confirmation email sent to ${testEmail}`);
-    } catch (error) {
-      console.error('Error sending test confirmation email:', error);
-    }
-  })();
-}
 
       const checkIfRegistered = async (email) => {
         const existingSolo = await Participant.findOne({ 'solo.email': email });
