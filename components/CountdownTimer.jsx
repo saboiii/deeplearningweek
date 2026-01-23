@@ -52,7 +52,7 @@ function CountdownTimer() {
 
   return (
     <motion.div
-      className="absolute top-20 right-2 md:right-10 z-40"
+      className="absolute top-20 right-2 md:right-10 z-20"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
