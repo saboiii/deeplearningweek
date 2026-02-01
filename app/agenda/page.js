@@ -136,7 +136,7 @@ function Agenda() {
           schedule={day3schedule}
           title={Object.keys(days)[2]}
           description={Object.values(days)[2]}
-          divs={4}
+          divs={3}
         />
       </div>
       <div ref={finalRef} className="w-full">
