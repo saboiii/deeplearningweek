@@ -70,10 +70,10 @@ function Agenda() {
     "1700 - 1815": "Company Workshop",
     "1700 - 1815": "Company Workshop",
     "1815 - 1930": "Dinner",
+    "1930 - 2100": "Premium AI Workshop | Advanced",
   };
 
   const day3schedule = {
-    "1930 - 2100": "Premium AI Workshop | Advanced",
     "2100 - 0100": "E-Sports Tournament",
     "2100 - 0100": "Stargazing",
     "2100 - 1000": "Sleeping/Hacking",
