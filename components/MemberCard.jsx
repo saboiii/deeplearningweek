@@ -502,6 +502,7 @@ const MemberCard = forwardRef(
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
+              <label className="text-xs text-[#c1c1d1]">Institution Name</label>
               <input
                 type="text"
                 onChange={(e) => setInstitutionName(e.target.value)}
@@ -510,6 +511,9 @@ const MemberCard = forwardRef(
                 value={institutionName}
                 className="ntuDetail"
               />
+              <label className="text-xs text-[#c1c1d1]">
+                Pre-University Category
+              </label>
               <select
                 onChange={(e) => setPreUniCategory(e.target.value)}
                 value={preUniCategory}
@@ -525,6 +529,9 @@ const MemberCard = forwardRef(
                 <option value="international">International school</option>
                 <option value="other">Other</option>
               </select>
+              <label className="text-xs text-[#c1c1d1]">
+                Expected Graduation Year
+              </label>
               <input
                 type="number"
                 onChange={(e) => setExpectedGradYear(e.target.value)}
@@ -535,6 +542,7 @@ const MemberCard = forwardRef(
                 min="2026"
                 max="2050"
               />
+              <label className="text-xs text-[#c1c1d1]">Date of Birth</label>
               <input
                 type="date"
                 onChange={(e) => setDateOfBirth(e.target.value)}
