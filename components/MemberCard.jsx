@@ -452,7 +452,7 @@ const MemberCard = forwardRef(
           <select
             onChange={(e) => handleParticipantTypeChange(e.target.value)}
             value={participantType}
-            className="lg:order-none order-2 flex text-sm outline-none font-medium tracking-tight z-30 bg-transparent mb-0 lg:mb-2 text-white"
+            className="lg:order-none order-2 flex text-sm outline-none font-medium tracking-tight z-30 mb-0 lg:mb-2 text-white bg-[#1a1929]/60 px-3 py-2 rounded-md border border-[#504d87]/40 hover:border-[#504d87] transition-colors"
           >
             <option value="" disabled>
               Select Participant Type
@@ -858,7 +858,7 @@ const MemberCard = forwardRef(
           </div>
 
           {errorText && (
-            <div className="flex px-1 text-center text-xs w-full justify-center mb-10 text-red-500/70 lg:order-none order-6">
+            <div className="flex px-1 text-center text-xs w-full justify-center mb-10 text-red-500 font-medium lg:order-none order-6">
               {errorText}
             </div>
           )}
