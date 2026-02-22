@@ -59,9 +59,9 @@ function CountdownTimer() {
     >
       <div className="relative">
         <div className="relative rounded-md border border-[#23263a] bg-[#10131c]/95 px-4 py-2.5 md:py-3 shadow-lg flex flex-col items-center min-w-[260px]">
-          {/* <span className="w-full tracking-[0.22em] items-center justify-center font-medium flex mb-2 uppercase text-[8px]">
-            Sign ups close in
-          </span> */}
+          <span className="w-full tracking-tight items-center justify-center font-medium flex mb-4 uppercase text-xs">
+            Registrations close in
+          </span>
           <div className="flex items-end justify-center gap-3">
             <TimeUnit value={timeLeft.days} label="DAYS" />
             <span className="text-[#3a3e54] text-lg font-bold mb-2">:</span>
