@@ -5,10 +5,10 @@ import Schedule from "@/components/Schedule";
 import { useSearchParams, notFound } from "next/navigation";
 
 function Agenda() {
-  const version = process.env.NEXT_PUBLIC_VERSION;
-  if (version !== "1.0.0") {
-    notFound();
-  }
+  // const version = process.env.NEXT_PUBLIC_VERSION;
+  // if (version !== "1.0.0") {
+  //   notFound();
+  // }
 
   const preRef = useRef(null);
   const mainRef = useRef(null);
