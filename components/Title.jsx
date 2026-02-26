@@ -46,7 +46,7 @@ function Title() {
       <div className="absolute left-6 gap-1.5 bottom-6 md:left-10 md:bottom-10 z-10 flex items-center bg-[#1b1f2b]/40 border border-[#2a2b3c] rounded-md px-3 py-2 md:px-4 md:py-2.5 backdrop-blur-sm">
         <AiFillTrophy />
         <span className="flex text-[12px] md:text-[14px] font-semibold text-[#e7eaf6]">
-          $28000
+          $30,000
         </span>
         <span className="flex text-[11px] md:text-[12px] text-[#a5afc1]">
           in prizes!
