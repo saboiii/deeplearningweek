@@ -1,0 +1,4 @@
+# Ensure GitHub Linguist classifies source as JavaScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+*.mjs linguist-language=JavaScript
